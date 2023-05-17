@@ -14,13 +14,19 @@ export default function Entrance() {
           </h2>
         </div>
         <div className="flex justify-end">
-          <button className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019EC9] border-4 hover:bg-[#019EC9] hover:text-white">
+          <button
+            className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019EC9] border-4 hover:bg-[#019EC9] hover:text-white"
+            onClick={() => history.push("/login")}
+          >
             Yönetici Girişi
           </button>
         </div>
       </div>
       <div className="pt-[5vh] pb-[5vh] gap-3 flex justify-center">
-        <button className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019EC9] border-4 hover:bg-[#019EC9] hover:text-white">
+        <button
+          className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019EC9] border-4 hover:bg-[#019EC9] hover:text-white"
+          onClick={() => history.push("/bireysel")}
+        >
           Bireysel Destek
         </button>
         <button

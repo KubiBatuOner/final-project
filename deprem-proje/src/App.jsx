@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Map from "./components/Map";
 import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/bireysel">
+          <Form />
         </Route>
       </Switch>
     </div>
