@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-/* import { useNavigate } from "react-router-dom"; */
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  /* let navigate = useNavigate(); */
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ export default function Login() {
 
   const handleLogin = (data) => {
     console.log(data);
-    /* navigate("/"); */
+    history.push("/panel");
   };
 
   const handleClearForm = () => {
