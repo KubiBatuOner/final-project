@@ -1,0 +1,32 @@
+.map-of-regions {
+  position: relative;
+}
+.list-of-regions {
+  list-style: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 40px;
+}
+.region-card {
+  display: none;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  padding: 0;
+}
+&.on {
+  display: flex;
+}
+
+.region-content {
+  padding: 10px;
+}
+.title {
+  font-weight: 600;
+}
+&.fs-6 {
+  font-size: 1rem;
+}

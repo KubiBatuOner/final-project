@@ -4,7 +4,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Intro() {
   return (
-    <div className="w-1/2" id="hakkimizda">
+    <div className="w-1/2">
       <h2 className="font-bold text-[2.5rem] leading-[4.5rem]">Hakkımızda</h2>
       <div>
         <p className="py-5 text-lg">
