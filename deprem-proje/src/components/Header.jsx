@@ -1,4 +1,3 @@
-import { HashLink } from "react-router-hash-link";
 import tarde from "../images/tarde2.jpg";
 import { NavLink } from "react-router-dom";
 
@@ -14,11 +13,9 @@ export default function Header() {
             <a className="text-[20px] font-semibold" href="hakkimizda">
               Hakkımızda
             </a>
-            <HashLink smooth to="/#sehirler">
-              <a className="text-[20px] font-semibold" href="">
-                Şehirler
-              </a>
-            </HashLink>
+            <a className="text-[20px] font-semibold" href="sehirler">
+              Şehirler
+            </a>
             <a
               className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019ec9] border-4 hover:bg-[#019ec9] hover:text-white"
               href=""
@@ -26,7 +23,9 @@ export default function Header() {
               BİZE ULAŞ
             </a>
             <NavLink to="/login">
-              <button className="text-[20px] font-medium">Giriş Yap</button>
+              <button className="text-[20px] font-medium">
+                Yönetici Girişi
+              </button>
             </NavLink>
           </div>
         </div>
