@@ -23,6 +23,7 @@ function App() {
           <Intro />
         </Route>
         <Route exact path="/gaziantep">
+          <Header />
           <Gaziantep />
         </Route>
         <Route exact path="/login">
