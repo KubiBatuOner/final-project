@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Zoom } from "react-toastify";
 
 const StyledFooterOuterContainer = styled.div`
   background-color: #019ec9;
+  border-radius: 2rem;
   width: 50%;
   box-sizing: border-box;
   padding: 14vh 0;
@@ -47,9 +51,10 @@ const StyledForm = styled.form`
   }
 `;
 const StyledFormTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 3rem;
   text-align: center;
   font-weight: 600;
+  margin-bottom: 3rem;
   @media (max-width: 1000px) {
     text-align: center;
   }
@@ -69,7 +74,7 @@ const StyledInput = styled.input`
   border-radius: 6px;
   padding: 1vh 0;
   color: #6b7280;
-  font-size: 0.85rem;
+  font-size: 1rem;
   width: 50%;
   height: 50%;
   margin-left: 25%;
@@ -83,16 +88,18 @@ const StyledTextArea = styled.textarea`
   width: 80%;
   height: 100%;
   margin-left: 10%;
+  margin-top: 5px;
+  font-weight: 500;
 `;
 const StyledButton = styled.button`
-  border: 1px solid #019ec9;
+  border-radius: 1rem;
+  border: 1px solid #6b7280;
   width: 50%;
   margin: 0 auto;
-  border-radius: 6px;
   padding: 1vh 0;
   font-weight: 500;
   &:hover {
-    background-color: #019ec9;
+    background-color: #6b7280;
     color: white;
   }
   background-color: ${(props) => (props.disabled ? "#CFD2CF" : "white")};
@@ -101,7 +108,6 @@ const StyledButton = styled.button`
     props.disabled ? "1px solid white" : "1px solid #3730A3"};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
-
 function Form() {
   const {
     register,
@@ -113,7 +119,27 @@ function Form() {
     console.log(data);
     reset();
   };
-
+  const history = useHistory();
+  function handleSend() {
+    history.goBack();
+    toast(
+      "Bilgileriniz tarafımıza gönderilmiştir,Sizinle en kısa sürede iletişim kuracağız",
+      {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Zoom,
+      }
+    );
+    setTimeout(() => history.push("/"), 3000);
+  }
+  function handleBack() {
+    history.goBack();
+  }
   return (
     <div className="flex justify-center">
       <StyledFooterOuterContainer>
@@ -131,6 +157,10 @@ function Form() {
               id="isim"
               {...register("name", {
                 required: "Lütfen adınızı belirtiniz",
+                minLength: {
+                  value: 3,
+                  message: "En az 3 karakter içermelidir",
+                },
                 maxLength: {
                   value: 25,
                   message: "En fazla 25 karakter girilebilir",
@@ -163,34 +193,39 @@ function Form() {
               {errors.sehir.message}
             </p>
           )}
-          {/*  <StyledLabel htmlFor="telefon">
-          Telefon Numaranız
-          <StyledInput
-            type="tel"
-            name="telefon"
-            id="telefon"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            {...register("telefon", {
-              required: "Lütfen geçerli telefon numaranızı yazınız",
-              maxLength: {
-                value: 11,
-                message: "Lütfen geçerli telefon numarası giriniz",
-              },
-            })}
-          />
-        </StyledLabel>
-        {errors.telefon && (
-          <p className="formErrorMessage text-red-600 text-center">
-            {errors.telefon.message}
-          </p>
-        )} */}
+          <StyledLabel htmlFor="telefon">
+            Telefon Numaranız
+            <StyledInput
+              type="tel"
+              name="telefon"
+              id="telefon"
+              placeholder="05xxx"
+              {...register("telefon", {
+                required: "Lütfen geçerli telefon numaranızı yazınız",
+                maxLength: {
+                  value: 11,
+                  message: "Lütfen geçerli telefon numarası giriniz",
+                },
+                minLength: {
+                  value: 11,
+                  message: "Lütfen geçerli telefon numarası giriniz",
+                },
+              })}
+            />
+          </StyledLabel>
+          {errors.telefon && (
+            <p className="formErrorMessage text-red-600 text-center">
+              {errors.telefon.message}
+            </p>
+          )}
           <StyledLabel htmlFor="message">
-            Özel Not Alanı
+            Hangi Konuda Destek Almak İstersiniz?
             <StyledTextArea
               name="message"
               id="message"
               placeholder="Danışmana iletilmesini istediğiniz özel notunuzu yazabilirsiniz"
               {...register("message", {
+                required: "Lütfen mesaj alanını boş bırakmayınız",
                 maxLength: {
                   value: 200,
                   message: "En fazla 200 karaktere kadar yazılabilir",
@@ -203,9 +238,10 @@ function Form() {
               {errors.message.message}
             </p>
           )}
-          <StyledButton type="submit" disabled={!isValid}>
+          <StyledButton type="submit" onClick={handleSend} disabled={!isValid}>
             Gönder
           </StyledButton>
+          <StyledButton onClick={handleBack}>Geri Dön</StyledButton>
         </StyledForm>
       </StyledFooterOuterContainer>
     </div>
