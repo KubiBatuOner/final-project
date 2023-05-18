@@ -7,6 +7,7 @@ import Map from "./components/Map";
 import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
 import Form from "./components/Form";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route exact path="/bireysel">
           <Form />
+        </Route>
+        <Route exact path="/panel">
+          <Dashboard />
         </Route>
       </Switch>
     </div>

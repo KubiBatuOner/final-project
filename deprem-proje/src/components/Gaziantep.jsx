@@ -1,27 +1,52 @@
+import { useState } from "react";
 export default function Gaziantep() {
+  const [isOpen, setIsOpen] = useState({
+    personel: false,
+    merkezler: false,
+    telefon: false,
+    arac: false,
+    kurum: false,
+    kisi: false,
+  });
+  const toggleList = (id) => {
+    setIsOpen((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
   return (
-    <div>
+    <div className="mb-10">
       <div className="mb-[10vh]">
-        <h1 className="font-bold text-[#019EC9] text-[4.5rem] leading-[4.5rem] mt-8 text-center">
+        <h1 className="font-bold text-[#019EC9] text-[4.5rem] leading-[4.5rem] text-center">
           GAZİANTEP
         </h1>
       </div>
       <div className="flex flex-col gap-y-[3vh]">
         <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
+          <div
+            className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
+            onClick={() => toggleList("personel")}
+          >
             Personel Adı Soyadı
           </div>
-          <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">Sümeyra Al</li>
-              <li className="ml-7 text-[1.5rem]">Canan Tütünen</li>
-            </ul>
-          </div>
+          {isOpen.personel && (
+            <div>
+              <ul className="list-disc">
+                <li className="ml-7 text-[1.5rem]">Sümeyra Al</li>
+                <li className="ml-7 text-[1.5rem]">Canan Tütünen</li>
+              </ul>
+            </div>
+          )}
         </div>
-        <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
-            Merkezlerimiz
-          </div>
+      </div>
+      <div>
+        <div
+          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
+          onClick={() => toggleList("merkezler")}
+        >
+          Merkezlerimiz
+        </div>
+        {isOpen.merkezler && (
           <div>
             <ul className="list-disc">
               <li className="ml-7 text-[1.5rem]">
@@ -34,32 +59,47 @@ export default function Gaziantep() {
               </li>
             </ul>
           </div>
+        )}
+      </div>
+      <div>
+        <div
+          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
+          onClick={() => toggleList("telefon")}
+        >
+          Merkez Telefon Numaraları
         </div>
-        <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
-            Merkez Telefon Numaraları
-          </div>
+        {isOpen.telefon && (
           <div>
             <ul className="list-disc">
               <li className="ml-7 text-[1.5rem]">0532 330 16 33</li>
               <li className="ml-7 text-[1.5rem]">0539 774 35 75</li>
             </ul>
           </div>
+        )}
+      </div>
+      <div>
+        <div
+          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
+          onClick={() => toggleList("arac")}
+        >
+          Araç Sayısı
         </div>
-        <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
-            Araç Sayısı
-          </div>
+        {isOpen.arac && (
           <div>
             <ul className="list-disc">
               <li className="ml-7 text-[1.5rem]">1</li>
             </ul>
           </div>
+        )}
+      </div>
+      <div>
+        <div
+          className="font-bold text-[2.5rem] leading-[4.5rem]  cursor-pointer "
+          onClick={() => toggleList("kurum")}
+        >
+          İş Birliği Yapılan Kurumlar
         </div>
-        <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
-            İş Birliği Yapılan Kurumlar
-          </div>
+        {isOpen.kurum && (
           <div>
             <ul className="list-disc">
               <li className="ml-7 text-[1.5rem]">WHR</li>
@@ -79,11 +119,16 @@ export default function Gaziantep() {
               </li>
             </ul>
           </div>
+        )}
+      </div>
+      <div>
+        <div
+          className="font-bold text-[2.5rem] leading-[4.5rem]  cursor-pointer  "
+          onClick={() => toggleList("kisi")}
+        >
+          Ulaşılan Kişi Sayısı
         </div>
-        <div>
-          <div className="font-bold text-[2.5rem] leading-[4.5rem]">
-            Ulaşılan Kişi Sayısı
-          </div>
+        {isOpen.kisi && (
           <div>
             <ul className="list-disc">
               <li className="ml-7 text-[1.5rem]">
@@ -91,7 +136,7 @@ export default function Gaziantep() {
               </li>
             </ul>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

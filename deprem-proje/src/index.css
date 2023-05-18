@@ -6,7 +6,7 @@
   clip-rule: evenodd;
   stroke-width: 1;
   transition: fill 300ms;
-  &:hover {
-    fill: #019ec9;
-  }
+}
+.region:hover {
+  fill: #019ec9;
 }
