@@ -21,6 +21,7 @@ function App() {
           <Map />
         </Route>
         <Route exact path="/hakkimizda">
+          <Header />
           <Intro />
         </Route>
         <Route exact path="/gaziantep">

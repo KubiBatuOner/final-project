@@ -10,3 +10,7 @@
 .region:hover {
   fill: #019ec9;
 }
+
+.label-text {
+  font-weight: 600;
+}

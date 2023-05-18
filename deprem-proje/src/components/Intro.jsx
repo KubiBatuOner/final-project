@@ -1,22 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { useHistory } from "react-router-dom";
 
 export default function Intro() {
-  const history = useHistory();
   return (
-    <div className="w-1/ pt-[10vh] ">
-      <div className="flex justify-end mt-4">
-        <button
-          className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019EC9] border-4 hover:bg-[#019EC9] hover:text-white "
-          onClick={() => history.push("/STK")}
-        >
-          Anasayfa
-        </button>
-      </div>
+    <div className="w-1/ pt-[6vh] ">
+      <div className="flex justify-end"></div>
       <div className="flex items-center justify-center">
-        <h2 className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] mt-8 text-center">
+        <h2 className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center">
           HAKKIMIZDA
         </h2>
       </div>

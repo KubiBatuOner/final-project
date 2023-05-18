@@ -19,6 +19,9 @@ export default function Header() {
       <nav className="flex justify-between items-center gap-x-[4vw]">
         <div className="flex-col">
           <div className="flex justify-between items-center gap-x-[4vw]">
+            <a className="text-[20px] font-semibold" href="/STK">
+              Anasayfa
+            </a>
             <a className="text-[20px] font-semibold" href="hakkimizda">
               Hakkımızda
             </a>
