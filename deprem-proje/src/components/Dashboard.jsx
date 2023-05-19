@@ -1,4 +1,5 @@
 import { useState } from "react";
+import tarde from "../images/tarde2.jpg";
 
 export default function Dashboard() {
   const [selectedCity, setSelectedCity] = useState(false);
@@ -9,8 +10,16 @@ export default function Dashboard() {
 
   return (
     <div className="pt-[5vh]">
-      <div className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center">
-        YÖNETİCİ PANELİ
+      <div className="flex justify-between items-center">
+        <div className="w-[9vw]">
+          <img src={tarde} />
+        </div>
+        <div className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center">
+          YÖNETİCİ PANELİ
+        </div>
+        <button className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019ec9] border-4 hover:bg-[#019ec9] hover:text-white">
+          Çıkış Yap
+        </button>
       </div>
       <div className="flex mt-[8vh]">
         <div className="flex-1">
@@ -19,23 +28,48 @@ export default function Dashboard() {
               ŞEHİRLER
             </div>
             <div>
-              <div className="font-semibold text-[1.7rem] mb-6">ADANA</div>
-              <div className="font-semibold text-[1.7rem] my-6">ADIYAMAN</div>
-              <div className="font-semibold text-[1.7rem] my-6">DİYARBAKIR</div>
-              <div
-                className="font-semibold text-[1.7rem] my-6 cursor-pointer"
-                onClick={() => handleCityClick("GAZİANTEP")}
-              >
-                GAZİANTEP
+              <div className="font-semibold text-[1.7rem] mb-6 rounded-2 border-[#019ec9]  border-4 w-2/3 pl-3">
+                ADANA
               </div>
-              <div className="font-semibold text-[1.7rem] my-6">HATAY</div>
-              <div className="font-semibold text-[1.7rem] my-6">
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                ADIYAMAN
+              </div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                DİYARBAKIR
+              </div>
+              {selectedCity === "GAZİANTEP" ? (
+                <div
+                  className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] bg-green-500 border-4 w-2/3 pl-3 cursor-pointer"
+                  onClick={() => handleCityClick("GAZİANTEP")}
+                >
+                  GAZİANTEP
+                </div>
+              ) : (
+                <div
+                  className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3 cursor-pointer"
+                  onClick={() => handleCityClick("GAZİANTEP")}
+                >
+                  GAZİANTEP
+                </div>
+              )}
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                HATAY
+              </div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
                 KAHRAMANMARAŞ
               </div>
-              <div className="font-semibold text-[1.7rem] my-6">KİLİS</div>
-              <div className="font-semibold text-[1.7rem] my-6">MALATYA</div>
-              <div className="font-semibold text-[1.7rem] my-6">OSMANİYE</div>
-              <div className="font-semibold text-[1.7rem] my-6">ŞANLIURFA</div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                KİLİS
+              </div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                MALATYA
+              </div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                OSMANİYE
+              </div>
+              <div className="font-semibold text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-2/3 pl-3">
+                ŞANLIURFA
+              </div>
             </div>
           </div>
         </div>
