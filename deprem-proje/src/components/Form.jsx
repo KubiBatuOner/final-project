@@ -121,12 +121,11 @@ function Form() {
   };
   const history = useHistory();
   function handleSend() {
-    history.goBack();
     toast(
-      "Bilgileriniz tarafımıza gönderilmiştir,Sizinle en kısa sürede iletişim kuracağız",
+      "Sizinle en kısa sürede iletişim kuracağız, Anasayfaya yönlendiriliyorsunuz",
       {
-        position: "bottom-center",
-        autoClose: 5000,
+        position: "top-right",
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -135,7 +134,7 @@ function Form() {
         transition: Zoom,
       }
     );
-    setTimeout(() => history.push("/"), 3000);
+    setTimeout(() => history.push("/"), 5000);
   }
   function handleBack() {
     history.goBack();
