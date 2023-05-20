@@ -88,14 +88,11 @@ export default function Dashboard() {
                       </h3>
                       <div>
                         <ul className="list-disc">
-                          <li className="ml-11 text-[1.3rem]">
-                            <b>Nurdağı 1 Konteyner Kenti</b>- Görüşme konteynerı
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">
-                            <b>Mobil Ekip</b> (Nurdağı B-1 C1, TOKİ Konteyner
-                            Eğitim Kampüsü, Ahbap Okulları, Nurdağı 2, Fatih
-                            Mah. Yeni Mah. Kurudere Mah. )
-                          </li>
+                          {a.merkez.map((m) => (
+                            <li key={m} className="ml-11 text-[1.3rem]">
+                              {m}
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -105,12 +102,11 @@ export default function Dashboard() {
                       </h3>
                       <div>
                         <ul className="list-disc">
-                          <li className="ml-11 text-[1.3rem]">
-                            0532 330 16 33
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">
-                            0539 774 35 75
-                          </li>
+                          {a.tel.map((t) => (
+                            <li key={t} className="ml-11 text-[1.3rem]">
+                              {t}
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -120,7 +116,7 @@ export default function Dashboard() {
                       </h3>
                       <div>
                         <ul className="list-disc">
-                          <li className="ml-11 text-[1.3rem]">1</li>
+                          <li className="ml-11 text-[1.3rem]">{a.arac}</li>
                         </ul>
                       </div>
                     </div>
@@ -130,29 +126,11 @@ export default function Dashboard() {
                       </div>
                       <div>
                         <ul className="list-disc">
-                          <li className="ml-11 text-[1.3rem]">WHR</li>
-                          <li className="ml-11 text-[1.3rem]">AÇEV</li>
-                          <li className="ml-11 text-[1.3rem]">ASHB</li>
-                          <li className="ml-11 text-[1.3rem]">
-                            Sağlık Bakanlığı
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">GASMEK</li>
-                          <li className="ml-11 text-[1.3rem]">
-                            Halk Eğitim Merkezi
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">TOG</li>
-                          <li className="ml-11 text-[1.3rem]">
-                            Gaziantep Yardım Vakfı
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">
-                            Empati Derneği
-                          </li>
-                          <li className="ml-11 text-[1.3rem]">KAÇUV</li>
-                          <li className="ml-11 text-[1.3rem]">Diyanet</li>
-                          <li className="ml-11 text-[1.3rem]">
-                            Yöret-Roman Diyalog Ağı - Sıfır Ayrımcılık Derneği
-                            (işbirliği için iletişime geçildi)
-                          </li>
+                          {a.kurum.map((k) => (
+                            <li key={k} className="ml-11 text-[1.3rem]">
+                              {k}
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -162,9 +140,7 @@ export default function Dashboard() {
                       </div>
                       <div>
                         <ul className="list-disc">
-                          <li className="ml-11 text-[1.3rem]">
-                            1 Nisan-1 Mayıs aralığında ulaşılan kişi sayısı 1000
-                          </li>
+                          <li className="ml-11 text-[1.3rem]">{a.kisi}</li>
                         </ul>
                       </div>
                     </div>
