@@ -54,7 +54,11 @@ export default function Header() {
                       <Menu.Item key={sehir.id}>
                         {({ active }) => (
                           <a
-                            onClick={() => history.push(`/${sehir.sehirAdi}`)}
+                            onClick={() =>
+                              history.push(
+                                `/${sehir.sehirAdi.toLocaleLowerCase("tr-TR")}`
+                              )
+                            }
                             className={classNames(
                               active
                                 ? "bg-gray-100 text-gray-900 cursor-pointer"
