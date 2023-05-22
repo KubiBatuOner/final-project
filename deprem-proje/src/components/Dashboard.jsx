@@ -13,11 +13,11 @@ export default function Dashboard() {
 
   return (
     <div className="pt-[5vh]">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-col xl:flex-row">
         <div className="w-[9vw]">
           <img src={tarde} />
         </div>
-        <div className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center">
+        <div className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center my-10">
           YÖNETİCİ PANELİ
         </div>
         <button className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019ec9] border-4 hover:bg-[#019ec9] hover:text-white">
