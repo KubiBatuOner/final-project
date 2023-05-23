@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function Login() {
   const history = useHistory();
@@ -10,10 +11,18 @@ export default function Login() {
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
 
-  const handleLogin = (data) => {
-    console.log(data);
-    history.push("/panel");
-  };
+  const handleLogin = (data) =>
+    axios
+      .post("http://localhost:9000/api/auth/login", data)
+      .then((res) => {
+        if (res.status == 200) {
+          localStorage.setItem("panel", res.data.token);
+          setTimeout(() => {
+            history.push("/panel");
+          }, 2500);
+        }
+      })
+      .catch((err) => console.log(err.response.data));
 
   const handleClearForm = () => {
     reset();

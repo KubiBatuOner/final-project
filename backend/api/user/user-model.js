@@ -1,7 +1,7 @@
 const db = require("../../data/db-config");
 
 async function getAllUsers() {
-  let users = await db("users").select("user_id", "email");
+  let users = await db("users").select("user_id", "name", "email");
   return users;
 }
 
@@ -11,7 +11,7 @@ async function findByFilter(filter) {
 
 async function findById(user_id) {
   return db("users")
-    .select("user_id", "email")
+    .select("user_id", "name")
     .where("user_id", user_id)
     .first();
 }

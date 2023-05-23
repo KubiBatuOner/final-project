@@ -1,7 +1,12 @@
 const express = require("express");
 const server = express();
+const authRouter = require("./auth/auth-router");
+
+const mw = require("./auth/auth-middleware");
 
 server.use(express.json());
+
+server.use("/api/auth", authRouter);
 
 server.use("*", (req, res) => {
   res.status(404).json({ message: "not found" });

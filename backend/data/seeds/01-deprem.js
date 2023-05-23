@@ -12,5 +12,11 @@ exports.seed = async function (knex) {
   await knex("araclar").truncate();
   await knex("kurumlar").truncate();
   await knex("ulasilanlar").truncate();
-  await knex("users").insert([{ email: "qwe@qwe.com", password: "12345" }]);
+  await knex("users").insert([
+    {
+      name: "Admin",
+      email: "qwe@qwe.com",
+      password: "$2a$08$8tCfMo7uWGGUKNzXoXdi9u9e/pSVUqtWyCBS7oiwVHX/7OXyqTasa", //12345
+    },
+  ]);
 };

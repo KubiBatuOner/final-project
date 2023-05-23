@@ -24,11 +24,11 @@ const restricted = (req, res, next) => {
 
 const payloadCheck = async function (req, res, next) {
   try {
-    const { email, password } = req.body;
-    if (!email || !password) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       res
         .status(400)
-        .json({ message: "Email ve password alanlarını doldurun" });
+        .json({ message: "Name,email ve password alanlarını doldurun" });
     } else {
       req.encPassword = await bcrypt.hash(req.body.password, 8);
       next();
@@ -38,9 +38,31 @@ const payloadCheck = async function (req, res, next) {
   }
 };
 
+const nameAndEmailCheck = async function (req, res, next) {
+  try {
+    const { name, email } = req.body;
+    let nameControl = await UserModel.findByFilter({ name: name });
+    let emailControl = await UserModel.findByFilter({ email: email });
+    if (nameControl) {
+      res.status(401).json({
+        message:
+          "Bu kullanıcı adı daha önce alınmış, lütfen başka bir kullanıcı adı deneyin",
+      });
+    } else if (emailControl) {
+      res.status(401).json({
+        message: "Bu email adresi ile önceden oturum açılmış",
+      });
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 const passwordCheck = async function (req, res, next) {
   try {
-    let user = await UserModel.findByFilter({ email: req.body.email });
+    let user = await UserModel.findByFilter({ name: req.body.name });
     if (!user) {
       next({
         status: 401,
@@ -66,9 +88,9 @@ const passwordCheck = async function (req, res, next) {
 
 const payloadCheckLogin = async function (req, res, next) {
   try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      res.status(400).json({ message: "Email, password alanlarını doldurun" });
+    const { name, password } = req.body;
+    if (!name || !password) {
+      res.status(400).json({ message: "Name, password alanlarını doldurun" });
     } else {
       req.encPassword = await bcrypt.hash(req.body.password, 8);
       next();
@@ -81,6 +103,7 @@ const payloadCheckLogin = async function (req, res, next) {
 module.exports = {
   restricted,
   payloadCheck,
+  nameAndEmailCheck,
   passwordCheck,
   payloadCheckLogin,
 };
