@@ -7,7 +7,6 @@ import Map from "./components/Map";
 import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
 import Form from "./components/Form";
-import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -28,15 +27,21 @@ function App() {
           <Header />
           <Gaziantep />
         </Route>
+        <Route exact path="/adiyaman">
+          <Header />
+          <Gaziantep />
+        </Route>
+        <Route exact path="/kahramanmaras">
+          <Header />
+          <Gaziantep />
+        </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/bireysel">
           <Form />
         </Route>
-        <Route exact path="/panel">
-          <Dashboard />
-        </Route>
+        <Route exact path="/panel"></Route>
       </Switch>
     </div>
   );

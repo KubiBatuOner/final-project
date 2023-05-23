@@ -1,142 +1,142 @@
 import { useState } from "react";
+import { sehirlerData } from "./sehirlerData";
+import { dummyData } from "./dummyData";
+
 export default function Gaziantep() {
-  const [isOpen, setIsOpen] = useState({
-    personel: false,
-    merkezler: false,
-    telefon: false,
-    arac: false,
-    kurum: false,
-    kisi: false,
-  });
-  const toggleList = (id) => {
-    setIsOpen((prevState) => ({
-      ...prevState,
-      [id]: !prevState[id],
-    }));
+  const [selectedCity, setSelectedCity] = useState("");
+
+  const handleCityClick = (city) => {
+    setSelectedCity(city);
+    console.log(selectedCity);
   };
+
   return (
-    <div className="mb-10">
-      <div className="mb-[10vh]">
-        <h1 className="font-bold text-[#019EC9] text-[4.5rem] leading-[4.5rem] text-center">
-          GAZİANTEP
-        </h1>
-      </div>
-      <div className="flex flex-col gap-y-[3vh]">
-        <div>
-          <div
-            className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
-            onClick={() => toggleList("personel")}
-          >
-            Personel Adı Soyadı
-          </div>
-          {isOpen.personel && (
-            <div>
-              <ul className="list-disc">
-                <li className="ml-7 text-[1.5rem]">Sümeyra Al</li>
-                <li className="ml-7 text-[1.5rem]">Canan Tütünen</li>
-              </ul>
+    <div>
+      <div className="flex mt-[8vh] flex-col xl:flex-row">
+        <div className="xl:flex-1">
+          <div className="h-auto">
+            <div className="mb-10 font-bold text-[#019EC9] text-[3.5rem] leading-[4.5rem]">
+              ŞEHİRLER
             </div>
-          )}
-        </div>
-      </div>
-      <div>
-        <div
-          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
-          onClick={() => toggleList("merkezler")}
-        >
-          Merkezlerimiz
-        </div>
-        {isOpen.merkezler && (
-          <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">
-                <b>Nurdağı 1 Konteyner Kenti</b>- Görüşme konteynerı
-              </li>
-              <li className="ml-7 text-[1.5rem]">
-                <b>Mobil Ekip</b> (Nurdağı B-1 C1, TOKİ Konteyner Eğitim
-                Kampüsü, Ahbap Okulları, Nurdağı 2, Fatih Mah. Yeni Mah.
-                Kurudere Mah. )
-              </li>
-            </ul>
+            <div>
+              {sehirlerData.map((s) =>
+                selectedCity === `${s.sehirAdi}` ? (
+                  <div
+                    key={s.id}
+                    className="font-semibold xl:text-[1.7rem] my-6 rounded-2 border-[#019ec9] bg-green-500 border-4 w-[20vw] pl-3 cursor-pointer"
+                    onClick={() => handleCityClick(`${s.sehirAdi}`)}
+                  >
+                    {s.sehirAdi}
+                  </div>
+                ) : (
+                  <div
+                    key={s.id}
+                    className="font-semibold xl:text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-[20vw] pl-3 cursor-pointer"
+                    onClick={() => handleCityClick(`${s.sehirAdi}`)}
+                  >
+                    {s.sehirAdi}
+                  </div>
+                )
+              )}
+            </div>
           </div>
-        )}
-      </div>
-      <div>
-        <div
-          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
-          onClick={() => toggleList("telefon")}
-        >
-          Merkez Telefon Numaraları
         </div>
-        {isOpen.telefon && (
+        <div className="xl:flex-[2]">
           <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">0532 330 16 33</li>
-              <li className="ml-7 text-[1.5rem]">0539 774 35 75</li>
-            </ul>
+            <div className="mb-8 font-bold text-[#019EC9] text-[3.5rem] leading-[4.5rem]">
+              ŞEHİR BİLGİSİ
+            </div>
+            {dummyData.map(
+              (a) =>
+                selectedCity === a.sehir && (
+                  <div
+                    key={a.id}
+                    className="h-auto border-4 border-[#019EC9] mb-8"
+                  >
+                    <div>
+                      <h2 className="ml-5 mt-3 font-bold text-[2rem]">
+                        {a.sehir}
+                      </h2>
+                    </div>
+                    <div className="mt-5 border-t-2">
+                      <h3 className="font-semibold text-[1.6rem] ml-4 h-auto">
+                        Personel Adı Soyadı
+                      </h3>
+                      <ul className="list-disc">
+                        {a.personel.map((p) => (
+                          <li key={p} className="ml-11 text-[1.3rem]">
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mt-5 border-t-2">
+                      <h3 className="font-semibold text-[1.6rem] ml-4">
+                        Merkezlerimiz
+                      </h3>
+                      <div>
+                        <ul className="list-disc">
+                          {a.merkez.map((m) => (
+                            <li key={m} className="ml-11 text-[1.3rem]">
+                              {m}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-5 border-t-2">
+                      <h3 className="font-semibold text-[1.6rem] ml-4">
+                        Merkez Telefon Numaraları
+                      </h3>
+                      <div>
+                        <ul className="list-disc">
+                          {a.tel.map((t) => (
+                            <li key={t} className="ml-11 text-[1.3rem]">
+                              {t}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-5 border-t-2">
+                      <h3 className="font-semibold text-[1.6rem] ml-4">
+                        Araç Sayısı
+                      </h3>
+                      <div>
+                        <ul className="list-disc">
+                          <li className="ml-11 text-[1.3rem]">{a.arac}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-5 border-t-2">
+                      <div className="font-semibold text-[1.6rem] ml-4">
+                        İş Birliği Yapılan Kurumlar
+                      </div>
+                      <div>
+                        <ul className="list-disc">
+                          {a.kurum.map((k) => (
+                            <li key={k} className="ml-11 text-[1.3rem]">
+                              {k}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-5 border-t-2 pb-4">
+                      <div className="font-semibold text-[1.6rem] ml-4">
+                        Ulaşılan Kişi Sayısı
+                      </div>
+                      <div>
+                        <ul className="list-disc">
+                          <li className="ml-11 text-[1.3rem]">{a.kisi}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )
+            )}
           </div>
-        )}
-      </div>
-      <div>
-        <div
-          className="font-bold text-[2.5rem] leading-[4.5rem] cursor-pointer "
-          onClick={() => toggleList("arac")}
-        >
-          Araç Sayısı
         </div>
-        {isOpen.arac && (
-          <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">1</li>
-            </ul>
-          </div>
-        )}
-      </div>
-      <div>
-        <div
-          className="font-bold text-[2.5rem] leading-[4.5rem]  cursor-pointer "
-          onClick={() => toggleList("kurum")}
-        >
-          İş Birliği Yapılan Kurumlar
-        </div>
-        {isOpen.kurum && (
-          <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">WHR</li>
-              <li className="ml-7 text-[1.5rem]">AÇEV</li>
-              <li className="ml-7 text-[1.5rem]">ASHB</li>
-              <li className="ml-7 text-[1.5rem]">Sağlık Bakanlığı</li>
-              <li className="ml-7 text-[1.5rem]">GASMEK</li>
-              <li className="ml-7 text-[1.5rem]">Halk Eğitim Merkezi</li>
-              <li className="ml-7 text-[1.5rem]">TOG</li>
-              <li className="ml-7 text-[1.5rem]">Gaziantep Yardım Vakfı</li>
-              <li className="ml-7 text-[1.5rem]">Empati Derneği</li>
-              <li className="ml-7 text-[1.5rem]">KAÇUV</li>
-              <li className="ml-7 text-[1.5rem]">Diyanet</li>
-              <li className="ml-7 text-[1.5rem]">
-                Yöret-Roman Diyalog Ağı - Sıfır Ayrımcılık Derneği (işbirliği
-                için iletişime geçildi)
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-      <div>
-        <div
-          className="font-bold text-[2.5rem] leading-[4.5rem]  cursor-pointer  "
-          onClick={() => toggleList("kisi")}
-        >
-          Ulaşılan Kişi Sayısı
-        </div>
-        {isOpen.kisi && (
-          <div>
-            <ul className="list-disc">
-              <li className="ml-7 text-[1.5rem]">
-                1 Nisan-1 Mayıs aralığında ulaşılan kişi sayısı 1000
-              </li>
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );
