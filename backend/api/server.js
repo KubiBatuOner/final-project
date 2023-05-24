@@ -9,12 +9,14 @@ const corsOptions = {
 
 server.use(cors(corsOptions));
 const authRouter = require("./auth/auth-router");
+const sehirRouter = require("./sehir/sehir-router");
 
 const mw = require("./auth/auth-middleware");
 
 server.use(express.json());
 
 server.use("/api/auth", authRouter);
+server.use("/api/sehir", authRouter);
 
 server.use("*", (req, res) => {
   res.status(404).json({ message: "not found" });
