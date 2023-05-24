@@ -70,9 +70,11 @@ const Dashboard = () => {
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr>
-              <th className="px-4 py-2 border-b">ID</th>
-              <th className="px-4 py-2 border-b">Ad</th>
-              <th className="px-4 py-2 border-b">Açıklama</th>
+              <th className="px-4 py-2 border-b">Personel ID</th>
+              <th className="px-4 py-2 border-b">Personel</th>
+              <th className="px-4 py-2 border-b">Şehir</th>
+              <th className="px-4 py-2 border-b">Merkez</th>
+              <th className="px-4 py-2 border-b">Merkez Telefon</th>
               <th className="px-4 py-2 border-b">İşlemler</th>
             </tr>
           </thead>
@@ -92,6 +94,34 @@ const Dashboard = () => {
                     />
                   ) : (
                     row.name
+                  )}
+                </td>
+                <td className="px-4 py-2 border-b">
+                  {editingRowId === row.id ? (
+                    <input
+                      type="text"
+                      value={row.description}
+                      onChange={(e) =>
+                        updateRow(row.id, { description: e.target.value })
+                      }
+                      className="border rounded px-2 py-1"
+                    />
+                  ) : (
+                    row.description
+                  )}
+                </td>
+                <td className="px-4 py-2 border-b">
+                  {editingRowId === row.id ? (
+                    <input
+                      type="text"
+                      value={row.description}
+                      onChange={(e) =>
+                        updateRow(row.id, { description: e.target.value })
+                      }
+                      className="border rounded px-2 py-1"
+                    />
+                  ) : (
+                    row.description
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
@@ -155,6 +185,42 @@ const Dashboard = () => {
               setNewRowData((prevData) => ({
                 ...prevData,
                 name: e.target.value,
+              }))
+            }
+            className="border rounded px-2 py-1 mr-2"
+          />
+          <input
+            type="text"
+            placeholder="Açıklama"
+            value={newRowData.description}
+            onChange={(e) =>
+              setNewRowData((prevData) => ({
+                ...prevData,
+                description: e.target.value,
+              }))
+            }
+            className="border rounded px-2 py-1 mr-2"
+          />
+          <input
+            type="text"
+            placeholder="Açıklama"
+            value={newRowData.description}
+            onChange={(e) =>
+              setNewRowData((prevData) => ({
+                ...prevData,
+                description: e.target.value,
+              }))
+            }
+            className="border rounded px-2 py-1 mr-2"
+          />
+          <input
+            type="text"
+            placeholder="Açıklama"
+            value={newRowData.description}
+            onChange={(e) =>
+              setNewRowData((prevData) => ({
+                ...prevData,
+                description: e.target.value,
               }))
             }
             className="border rounded px-2 py-1 mr-2"

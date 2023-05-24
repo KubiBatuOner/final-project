@@ -1,5 +1,13 @@
 const express = require("express");
 const server = express();
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
+server.use(cors(corsOptions));
 const authRouter = require("./auth/auth-router");
 
 const mw = require("./auth/auth-middleware");

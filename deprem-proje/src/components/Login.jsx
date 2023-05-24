@@ -19,7 +19,7 @@ export default function Login() {
           localStorage.setItem("panel", res.data.token);
           setTimeout(() => {
             history.push("/panel");
-          }, 2500);
+          }, 1000);
         }
       })
       .catch((err) => console.log(err.response.data));
@@ -27,6 +27,7 @@ export default function Login() {
   const handleClearForm = () => {
     reset();
   };
+
   return (
     <div>
       <div className="bg-slate-800 text-white p-8 mt-8 rounded-md shadow-md w-1/2 mx-auto xs:w-2/3">
@@ -36,13 +37,15 @@ export default function Login() {
           className="loginForm flex flex-col mt-4"
         >
           <div className="loginFormContainer">
-            <label htmlFor="email" className="flex">
-              E-posta
+            <label htmlFor="name" className="flex">
+              Kullanıcı Adı
             </label>
             <input
               className="rounded-md w-full p-2 text-black"
-              type="email"
-              {...register("email", { required: "Bir e-posta girmelisiniz" })}
+              type="name"
+              {...register("name", {
+                required: "Bir kullanıcı adı girmelisiniz",
+              })}
             />
             {errors.email && (
               <span className="text-red-600 font-semibold">
