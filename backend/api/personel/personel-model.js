@@ -32,7 +32,9 @@ const getBy = (filter) => {
 };
 const add = async (personel) => {
   const newPersonelId = await db("personel").insert(personel);
-  const newPersonel = await getBy({ personel_id: newPersonelId[0] });
+  const newPersonel = await db("personel")
+    .where("personel_id", newPersonelId)
+    .first();
   return newPersonel;
 };
 

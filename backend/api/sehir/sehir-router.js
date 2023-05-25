@@ -28,7 +28,7 @@ router.get("/:name", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    const newSehir = Sehir.add(req.body);
+    const newSehir = await Sehir.add(req.body);
     res.status(201).json(newSehir);
   } catch (error) {
     next(error);
