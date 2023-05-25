@@ -1,4 +1,4 @@
-const db = require("../../data/dbconfig");
+const db = require("../../data/db-config");
 
 const getAll = () => {
   return db("sehir as s");

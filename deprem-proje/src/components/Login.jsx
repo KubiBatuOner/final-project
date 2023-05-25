@@ -19,7 +19,7 @@ export default function Login() {
           localStorage.setItem("panel", res.data.token);
           setTimeout(() => {
             history.push("/panel");
-          }, 1000);
+          }, 500);
         }
       })
       .catch((err) => console.log(err.response.data));

@@ -369,7 +369,7 @@ const Dashboard = () => {
                 isim: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="text"
@@ -381,7 +381,7 @@ const Dashboard = () => {
                 soyisim: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="tel"
@@ -393,7 +393,7 @@ const Dashboard = () => {
                 telefon1: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="tel"
@@ -405,7 +405,7 @@ const Dashboard = () => {
                 telefon2: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="number"
@@ -417,7 +417,7 @@ const Dashboard = () => {
                 TC: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="text"
@@ -429,7 +429,7 @@ const Dashboard = () => {
                 kan_grubu: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="text"
@@ -441,7 +441,7 @@ const Dashboard = () => {
                 ikamet_adresi: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="text"
@@ -453,11 +453,11 @@ const Dashboard = () => {
                 calisma_durumu: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[6vw]"
           />
           <input
             type="text"
-            placeholder="Projedeki Saha Adresi"
+            placeholder="Saha Adresi"
             value={newRowData.projedeki_saha_adresi}
             onChange={(e) =>
               setNewRowData((prevData) => ({
@@ -465,11 +465,11 @@ const Dashboard = () => {
                 projedeki_saha_adresi: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[6vw]"
           />
           <input
             type="text"
-            placeholder="Acil Durumda Aranacak Kişi"
+            placeholder="Aranacak Kişi Adı Soyadı"
             value={newRowData.ADAK_adi_soyadi}
             onChange={(e) =>
               setNewRowData((prevData) => ({
@@ -477,11 +477,11 @@ const Dashboard = () => {
                 ADAK_adi_soyadi: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="tel"
-            placeholder="Acil Durumda Aranacak Kişi Telefon"
+            placeholder="Aranacak Kişi Telefon"
             value={newRowData.ADAK_telefon}
             onChange={(e) =>
               setNewRowData((prevData) => ({
@@ -489,11 +489,11 @@ const Dashboard = () => {
                 ADAK_telefon: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <input
             type="text"
-            placeholder="Acil Durumda Aranacak Kişi Bağı"
+            placeholder="Aranacak Kişi Bağı"
             value={newRowData.ADAK_bagi}
             onChange={(e) =>
               setNewRowData((prevData) => ({
@@ -501,7 +501,7 @@ const Dashboard = () => {
                 ADAK_bagi: e.target.value,
               }))
             }
-            className="border rounded px-2 py-1 mr-2"
+            className="border rounded px-2 py-1 mr-2 w-[5vw]"
           />
           <button
             onClick={addRow}
