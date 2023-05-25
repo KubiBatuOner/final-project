@@ -1,55 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import tarde from "../images/tarde2.jpg";
+import axios from "axios";
 
 const Dashboard = () => {
-  // Örnek veri
-  const [data, setData] = useState([
-    {
-      id: 1,
-      isim: "Öğe 1",
-      soyisim: "Açıklama 1",
-      telefon1: 55555555555,
-      telefon2: null,
-      TC: null,
-      kan_grubu: "A+",
-      ikamet_adresi: "Bursa",
-      calisma_durumu: "Hayır",
-      projedeki_saha_adresi: "abc",
-      ADAK_adi_soyadi: "qwe",
-      ADAK_telefon: null,
-      ADAK_bagi: "Baba",
-    },
-    {
-      id: 2,
-      isim: "Öğe 2",
-      soyisim: "Açıklama 2",
-      telefon1: null,
-      telefon2: null,
-      TC: null,
-      kan_grubu: "A-",
-      ikamet_adresi: "İstanbul",
-      calisma_durumu: "Evet",
-      projedeki_saha_adresi: "abc",
-      ADAK_adi_soyadi: "asd",
-      ADAK_telefon: null,
-      ADAK_bagi: "Anne",
-    },
-    {
-      id: 3,
-      isim: "Öğe 3",
-      soyisim: "Açıklama 3",
-      telefon1: null,
-      telefon2: null,
-      TC: null,
-      kan_grubu: "AB+",
-      ikamet_adresi: "İzmir",
-      calisma_durumu: "Evet",
-      projedeki_saha_adresi: "abc",
-      ADAK_adi_soyadi: "zxc",
-      ADAK_telefon: null,
-      ADAK_bagi: "Kardeş",
-    },
-  ]);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:9000/api/personel`).then((response) => {
+      setData(response.data);
+    });
+  }, []);
 
   // Düzenleme durumunu tutmak için state
   const [editingRowId, setEditingRowId] = useState(null);
@@ -73,6 +32,7 @@ const Dashboard = () => {
 
   // Satır düzenlemesini başlatan fonksiyon
   const startEditing = (rowId) => {
+    console.log(rowId);
     setEditingRowId(rowId);
   };
 
@@ -82,10 +42,12 @@ const Dashboard = () => {
   };
 
   // Satırı güncelleyen fonksiyon
-  const updateRow = (rowId, newData) => {
+  const updateRow = async (rowId, newData) => {
+    console.log(rowId, editingRowId);
+    await axios.put(`http://localhost:9000/api/personel/${rowId}`, newData);
     setData((prevData) =>
       prevData.map((row) => {
-        if (row.id === rowId) {
+        if (row.personel_id === rowId) {
           return { ...row, ...newData };
         }
         return row;
@@ -157,15 +119,15 @@ const Dashboard = () => {
           </thead>
           <tbody className="text-center">
             {data.map((row) => (
-              <tr key={row.id}>
-                <td className="px-4 py-2 border-b">{row.id}</td>
+              <tr key={row.personel_id}>
+                <td className="px-4 py-2 border-b">{row.personel_id}</td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.isim}
                       onChange={(e) =>
-                        updateRow(row.id, { isim: e.target.value })
+                        updateRow(row.personel_id, { isim: e.target.value })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -174,12 +136,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.soyisim}
                       onChange={(e) =>
-                        updateRow(row.id, { soyisim: e.target.value })
+                        updateRow(row.personel_id, { soyisim: e.target.value })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -188,12 +150,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="tel"
                       value={row.telefon1}
                       onChange={(e) =>
-                        updateRow(row.id, { telefon1: e.target.value })
+                        updateRow(row.personel_id, { telefon1: e.target.value })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -202,12 +164,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="tel"
                       value={row.telefon2}
                       onChange={(e) =>
-                        updateRow(row.id, { telefon2: e.target.value })
+                        updateRow(row.personel_id, { telefon2: e.target.value })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -216,12 +178,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="number"
                       value={row.TC}
                       onChange={(e) =>
-                        updateRow(row.id, { TC: e.target.value })
+                        updateRow(row.personel_id, { TC: e.target.value })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -230,12 +192,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.kan_grubu}
                       onChange={(e) =>
-                        updateRow(row.id, { kan_grubu: e.target.value })
+                        updateRow(row.personel_id, {
+                          kan_grubu: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -244,12 +208,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b whitespace-pre-wrap">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.ikamet_adresi}
                       onChange={(e) =>
-                        updateRow(row.id, { ikamet_adresi: e.target.value })
+                        updateRow(row.personel_id, {
+                          ikamet_adresi: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -258,12 +224,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.calisma_durumu}
                       onChange={(e) =>
-                        updateRow(row.id, { calisma_durumu: e.target.value })
+                        updateRow(row.personel_id, {
+                          calisma_durumu: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -272,12 +240,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.projedeki_saha_adresi}
                       onChange={(e) =>
-                        updateRow(row.id, {
+                        updateRow(row.personel_id, {
                           projedeki_saha_adresi: e.target.value,
                         })
                       }
@@ -288,12 +256,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.ADAK_adi_soyadi}
                       onChange={(e) =>
-                        updateRow(row.id, { ADAK_adi_soyadi: e.target.value })
+                        updateRow(row.personel_id, {
+                          ADAK_adi_soyadi: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -302,12 +272,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="tel"
                       value={row.ADAK_telefon}
                       onChange={(e) =>
-                        updateRow(row.id, { ADAK_telefon: e.target.value })
+                        updateRow(row.personel_id, {
+                          ADAK_telefon: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -316,12 +288,14 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <input
                       type="text"
                       value={row.ADAK_bagi}
                       onChange={(e) =>
-                        updateRow(row.id, { ADAK_bagi: e.target.value })
+                        updateRow(row.personel_id, {
+                          ADAK_bagi: e.target.value,
+                        })
                       }
                       className="border rounded px-2 py-1"
                     />
@@ -330,7 +304,7 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td className="px-4 py-2 border-b">
-                  {editingRowId === row.id ? (
+                  {editingRowId === row.personel_id ? (
                     <button
                       onClick={() => stopEditing()}
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2"
@@ -339,14 +313,14 @@ const Dashboard = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => startEditing(row.id)}
+                      onClick={() => startEditing(row.personel_id)}
                       className="bg-[#019ec9] hover:bg-blue-600 text-white font-bold py-1 px-2 rounded mr-2"
                     >
                       Düzenle
                     </button>
                   )}
                   <button
-                    onClick={() => deleteRow(row.id)}
+                    onClick={() => deleteRow(row.personel_id)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
                   >
                     Sil
