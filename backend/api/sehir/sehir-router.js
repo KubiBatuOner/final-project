@@ -48,7 +48,9 @@ router.delete("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     await Sehir.change(req.body, req.params.id);
-    res.status(201).json({ message: `${req.params.id} id nolu şehir silindi` });
+    res
+      .status(201)
+      .json({ message: `${req.params.id} id nolu şehir değiştirildi` });
   } catch (error) {
     next(error);
   }
