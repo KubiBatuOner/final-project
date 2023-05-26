@@ -7,7 +7,7 @@ import Map from "./components/Map";
 import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
 import Form from "./components/Form";
-import Dashboard from "./components/Dashboard";
+import Dashboard3 from "./components/Dashboard3";
 
 function App() {
   return (
@@ -71,7 +71,7 @@ function App() {
           <Form />
         </Route>
         <Route exact path="/panel">
-          <Dashboard />
+          <Dashboard3 />
         </Route>
       </Switch>
     </div>

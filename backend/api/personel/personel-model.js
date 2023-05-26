@@ -3,7 +3,6 @@ const db = require("../../data/db-config");
 const getAll = async () => {
   let personel = await db("personel as p")
     .leftJoin("merkez as m", "p.merkez_id", "m.merkez_id")
-    .leftJoin("sehir as s", "m.sehir_id", "s.sehir_id")
     .select(
       "p.personel_id",
       "p.isim",
@@ -18,8 +17,7 @@ const getAll = async () => {
       "p.ADAK_adi_soyadi",
       "p.ADAK_telefon",
       "p.ADAK_bagi",
-      "p.merkez_id",
-      "m.sehir_id"
+      "p.merkez_id"
     );
   return personel;
 };
