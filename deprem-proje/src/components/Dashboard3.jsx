@@ -104,6 +104,14 @@ function App() {
           ? "Zorunlu"
           : true,
     },
+    {
+      title: "Merkez ID",
+      field: "merkez_id",
+      validate: (rowData) =>
+        rowData.merkez_id === undefined || rowData.merkez_id === ""
+          ? "Zorunlu"
+          : true,
+    },
   ];
   return (
     <div className="App">
@@ -133,14 +141,30 @@ function App() {
             }),
           onRowUpdate: (newData, oldData) =>
             new Promise((resolve, reject) => {
-              console.log(oldData);
+              let a = {
+                personel_id: newData.personel_id,
+                isim: newData.isim,
+                soyisim: newData.soyisim,
+                telefon1: newData.telefon1,
+                telefon2: newData.telefon2,
+                TC: newData.TC,
+                kan_grubu: newData.kan_grubu,
+                ikamet_adresi: newData.ikamet_adresi,
+                calisma_durumu: newData.calisma_durumu,
+                projedeki_saha_adresi: newData.projedeki_saha_adresi,
+                ADAK_adi_soyadi: newData.ADAK_adi_soyadi,
+                ADAK_telefon: newData.ADAK_telefon,
+                ADAK_bagi: newData.ADAK_bagi,
+                merkez_id: newData.merkez_id,
+              };
+              console.log(a);
               //Backend call
               fetch(url + "/" + oldData.personel_id, {
                 method: "PUT",
                 headers: {
                   "Content-type": "application/json",
                 },
-                body: JSON.stringify(newData),
+                body: JSON.stringify(a),
               })
                 .then((resp) => resp.json())
                 .then((resp) => {
