@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { axiosWithAuth } from "./axiosWithAuth";
 
 export default function Login() {
   const history = useHistory();
@@ -12,11 +12,11 @@ export default function Login() {
   } = useForm({ mode: "onChange" });
 
   const handleLogin = (data) =>
-    axios
-      .post("http://localhost:9000/api/auth/login", data)
+    axiosWithAuth()
+      .post("/api/auth/login", data)
       .then((res) => {
         if (res.status == 200) {
-          localStorage.setItem("panel", res.data.token);
+          localStorage.setItem("token", res.data.token);
           setTimeout(() => {
             history.push("/panel");
           }, 500);

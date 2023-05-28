@@ -65,6 +65,7 @@ function App() {
           <Gaziantep />
         </Route>
         <Route exact path="/login">
+          <Header />
           <Login />
         </Route>
         <Route exact path="/bireysel">
