@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import "../App.css";
+import "../../App.css";
 import MaterialTable from "@material-table/core";
-import tarde from "../images/tarde2.jpg";
-import Logout from "./Logout";
 
-function App() {
+export default function PersonelTablo() {
   const url = "http://localhost:9000/api/personel";
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -117,21 +115,7 @@ function App() {
     },
   ];
   return (
-    <div className="App">
-      <div className="flex justify-between items-center">
-        <div className="w-[9vw]">
-          <img src={tarde} />
-        </div>
-        <div className="font-bold text-[#1F2937] text-[4.5rem] leading-[4.5rem] text-center">
-          YÖNETİCİ PANELİ
-        </div>
-        {/* <button className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019ec9] border-4 hover:bg-[#019ec9] hover:text-white">
-          Çıkış Yap
-        </button> */}
-        <Logout />
-      </div>
-      <h1 className="text-center">TARDE</h1>
-      <h4 className="text-center">Personel Tablosu</h4>
+    <div className="App2">
       <MaterialTable
         title="Personel Tablosu"
         columns={columns}
@@ -207,5 +191,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -7,6 +7,7 @@ const getAll = async () => {
       "m.merkez_id",
       "m.merkez_isim",
       "m.telefon1",
+      "m.telefon2",
       "m.merkez_adres",
       "m.merkez_koordinati_x",
       "m.merkez_koordinati_y",
