@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -9,6 +10,7 @@ import Entrance from "./components/Entrance";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import AdminHeader from "./components/AdminHeader";
 
 function App() {
   return (
@@ -18,51 +20,99 @@ function App() {
           <Entrance />
         </Route>
         <Route exact path="/STK">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Map />
         </Route>
         <Route exact path="/hakkimizda">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Intro />
         </Route>
         <Route exact path="/adana">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/adiyaman">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/diyarbakir">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/gaziantep">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/hatay">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/kahramanmaras">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/kilis">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/malatya">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/osmaniye">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/sanliurfa">
-          <Header />
+          {localStorage.getItem("token") !== null ? (
+            <AdminHeader />
+          ) : (
+            <Header />
+          )}
           <Gaziantep />
         </Route>
         <Route exact path="/login">

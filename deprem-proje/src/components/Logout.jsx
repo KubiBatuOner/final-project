@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -7,8 +8,6 @@ export default function Logout() {
   useEffect(() => {}, [location]);
 
   const history = useHistory();
-  let loggedInToken = localStorage.getItem("token");
-  console.log(loggedInToken);
   const triggerLogout = (e) => {
     console.log("logout butonuna basıldı");
     localStorage.removeItem("token");
@@ -16,7 +15,7 @@ export default function Logout() {
   };
   return (
     <span>
-      {loggedInToken === null ? (
+      {localStorage.getItem("token") === null ? (
         ""
       ) : (
         <button
