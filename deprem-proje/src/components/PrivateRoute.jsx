@@ -1,16 +1,13 @@
+/* eslint-disable react/prop-types */
 import { Route, Redirect } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ children }) => {
   console.log("private'e erişmeye çalışıyor");
 
   const token = localStorage.getItem("token");
   return (
     <Route
-      {...rest}
-      render={(props) =>
-        token ? <Component {...props} /> : <Redirect to="/login" />
-      }
+      render={() => (token ? <>{children}</> : <Redirect to="/login" />)}
     />
   );
 };

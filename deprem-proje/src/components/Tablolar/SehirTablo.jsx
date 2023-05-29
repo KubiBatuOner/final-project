@@ -49,7 +49,7 @@ export default function SehirTablo() {
   return (
     <div className="App2">
       <MaterialTable
-        title="Hizmet Tablosu"
+        title="Şehir Tablosu"
         columns={columns}
         data={data}
         options={{ addRowPosition: "first" }}

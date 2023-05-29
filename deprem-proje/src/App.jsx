@@ -8,6 +8,7 @@ import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -71,9 +72,11 @@ function App() {
         <Route exact path="/bireysel">
           <Form />
         </Route>
-        <Route exact path="/panel">
-          <Dashboard />
-        </Route>
+        <PrivateRoute>
+          <Route exact path="/panel">
+            <Dashboard />
+          </Route>
+        </PrivateRoute>
       </Switch>
     </div>
   );

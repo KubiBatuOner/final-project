@@ -14,6 +14,7 @@ export default function MerkezTablo() {
       .then((resp) => resp.json())
       .then((resp) => setData(resp));
   };
+
   const columns = [
     {
       title: "Merkez İsmi",
@@ -73,6 +74,18 @@ export default function MerkezTablo() {
     {
       title: "Şehir ID",
       field: "sehir_id",
+      editComponent: ({ value, onChange, rowData }) => (
+        <Select
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+        >
+          {data.map((s) => (
+            <MenuItem key={s.sehir_id} value={s.sehir_adi}>
+              {s.name}
+            </MenuItem>
+          ))}
+        </Select>
+      ),
       validate: (rowData) =>
         rowData.sehir_id === undefined || rowData.sehir_id === ""
           ? "Zorunlu"
