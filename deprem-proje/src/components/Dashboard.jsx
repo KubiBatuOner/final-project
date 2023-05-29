@@ -5,6 +5,8 @@ import Logout from "./Logout";
 import MerkezTablo from "./Tablolar/MerkezTablo";
 import PersonelTablo from "./Tablolar/PersonelTablo";
 import HizmetTablo from "./Tablolar/HizmetTablo";
+import EnvanterTablo from "./Tablolar/EnvanterTablo";
+import SehirTablo from "./Tablolar/SehirTablo";
 
 export default function Dashboard() {
   return (
@@ -22,6 +24,8 @@ export default function Dashboard() {
       <MerkezTablo />
       <KurumTablo />
       <HizmetTablo />
+      <EnvanterTablo />
+      <SehirTablo />
     </div>
   );
 }
