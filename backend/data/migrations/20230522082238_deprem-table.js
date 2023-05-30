@@ -50,6 +50,7 @@ exports.up = function (knex) {
       tbl.string("ADAK_adi_soyadi", 64).notNullable();
       tbl.string("ADAK_telefon", 11).notNullable().unique();
       tbl.string("ADAK_bagi", 30).notNullable();
+      tbl.string("merkez_isim");
       tbl
         .integer("merkez_id")
         .unsigned()
@@ -66,6 +67,7 @@ exports.up = function (knex) {
       tbl.string("kurum_aciklama", 500);
       tbl.string("kurum_link", 128);
       tbl.string("kurum_logo_link", 128);
+      tbl.string("merkez_isim");
       tbl
         .integer("merkez_id")
         .unsigned()
@@ -80,6 +82,7 @@ exports.up = function (knex) {
       tbl.string("envanter_adi", 64).notNullable();
       tbl.string("envanter_tur", 64).notNullable();
       tbl.string("envanter_aciklama", 500);
+      tbl.string("merkez_isim");
       tbl
         .integer("merkez_id")
         .unsigned()
@@ -95,6 +98,7 @@ exports.up = function (knex) {
       tbl.dateTime("donem", { precision: 3 }).defaultTo(knex.fn.now());
       tbl.string("hizmet_tipi", 64).notNullable();
       tbl.integer("erisilen_kisi_sayisi", 5).notNullable();
+      tbl.string("merkez_isim");
       tbl
         .integer("merkez_id")
         .unsigned()

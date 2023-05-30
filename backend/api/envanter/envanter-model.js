@@ -3,7 +3,13 @@ const db = require("../../data/db-config");
 const getAll = async () => {
   let envanter = await db("envanter as e")
     .leftJoin("merkez as m", "e.merkez_id", "m.merkez_id")
-    .select("e.envanter_id", "e.envanter_adi", "e.envanter_tur", "e.merkez_id");
+    .select(
+      "e.envanter_id",
+      "e.envanter_adi",
+      "e.envanter_tur",
+      "e.merkez_id",
+      "m.merkez_isim"
+    );
   return envanter;
 };
 const getById = async (envanter_id) => {

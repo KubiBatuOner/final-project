@@ -10,7 +10,8 @@ const getAll = async () => {
       "k.kurum_aciklama",
       "k.kurum_link",
       "k.kurum_logo_link",
-      "k.merkez_id"
+      "k.merkez_id",
+      "m.merkez_isim"
     );
   return kurum;
 };

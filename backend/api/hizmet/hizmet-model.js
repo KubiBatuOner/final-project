@@ -8,7 +8,8 @@ const getAll = async () => {
       "h.donem",
       "h.hizmet_tipi",
       "h.erisilen_kisi_sayisi",
-      "h.merkez_id"
+      "h.merkez_id",
+      "m.merkez_isim"
     );
   return hizmet;
 };

@@ -145,10 +145,6 @@ export default function MerkezTablo() {
         rowData.sehir_isim === undefined || rowData.sehir_isim === ""
           ? "Zorunlu"
           : true,
-      /* validate: (rowData) =>
-        rowData.sehir_id === undefined || rowData.sehir_id === ""
-          ? "Zorunlu"
-          : true, */
     },
   ];
   return (

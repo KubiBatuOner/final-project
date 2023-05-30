@@ -17,7 +17,8 @@ const getAll = async () => {
       "p.ADAK_adi_soyadi",
       "p.ADAK_telefon",
       "p.ADAK_bagi",
-      "p.merkez_id"
+      "p.merkez_id",
+      "m.merkez_isim"
     );
   return personel;
 };

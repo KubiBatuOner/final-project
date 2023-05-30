@@ -79,8 +79,8 @@ exports.seed = async function (knex) {
       merkez_koordinati_x: 36.540673,
       merkez_koordinati_y: 36.540673,
       hizmet_baslangic_tarihi: "08-03-2023",
-      sehir_id: 7,
       sehir_isim: "Hatay",
+      sehir_id: 7,
     },
   ]);
   await knex("personel").insert([
@@ -96,28 +96,41 @@ exports.seed = async function (knex) {
       ADAK_adi_soyadi: "Mahmut Tuncer",
       ADAK_telefon: "05444444444",
       ADAK_bagi: "Anne",
+      merkez_isim: "İbb afet kordinasyon merkezi",
       merkez_id: 1,
     },
   ]);
 
   await knex("kurum").insert([
-    { kurum_adi: "İzmit Belediyesi", kurum_adi_kisaltma: "İB", merkez_id: 1 },
+    {
+      kurum_adi: "İzmit Belediyesi",
+      kurum_adi_kisaltma: "İB",
+      merkez_isim: "İbb afet kordinasyon merkezi",
+      merkez_id: 1,
+    },
   ]);
 
   await knex("envanter").insert([
-    { envanter_adi: "Araba", envanter_tur: "Araç", merkez_id: 1 },
+    {
+      envanter_adi: "Araba",
+      envanter_tur: "Araç",
+      merkez_isim: "İbb afet kordinasyon merkezi",
+      merkez_id: 1,
+    },
   ]);
   await knex("hizmet").insert([
     {
       donem: "05-2023",
       hizmet_tipi: "Psikolojik Destek",
       erisilen_kisi_sayisi: 20,
+      merkez_isim: "İbb afet kordinasyon merkezi",
       merkez_id: 1,
     },
     {
       donem: "05-2023",
       hizmet_tipi: "Sağlık Tedavi Desteği",
       erisilen_kisi_sayisi: 10,
+      merkez_isim: "İbb afet kordinasyon merkezi",
       merkez_id: 1,
     },
   ]);
