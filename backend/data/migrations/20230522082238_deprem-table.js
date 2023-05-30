@@ -14,18 +14,19 @@ exports.up = function (knex) {
       tbl.increments("sehir_id");
       tbl.string("sehir_isim", 128).notNullable().unique();
       tbl.string("sehir_aciklama", 500);
-      tbl.decimal("sehir_merkezi_koordinati_x", 9).notNullable().unique();
-      tbl.decimal("sehir_merkezi_koordinati_y", 9).notNullable().unique();
+      tbl.decimal("sehir_merkezi_koordinati_x", 9).notNullable();
+      tbl.decimal("sehir_merkezi_koordinati_y", 9).notNullable();
     })
     .createTable("merkez", (tbl) => {
       tbl.increments("merkez_id");
       tbl.string("merkez_isim", 128).notNullable();
-      tbl.integer("telefon1", 11).notNullable().unique();
-      tbl.integer("telefon2", 11).unique();
+      tbl.string("merkez_telefon1", 11).notNullable().unique();
+      tbl.string("merkez_telefon2", 11).unique();
       tbl.string("merkez_adres", 128).notNullable();
-      tbl.decimal("merkez_koordinati_x", 9).notNullable().unique();
-      tbl.decimal("merkez_koordinati_y", 9).notNullable().unique();
+      tbl.decimal("merkez_koordinati_x", 9).notNullable();
+      tbl.decimal("merkez_koordinati_y", 9).notNullable();
       tbl.dateTime("hizmet_baslangic_tarihi").notNullable();
+      tbl.string("sehir_isim");
       tbl
         .integer("sehir_id")
         .unsigned()
@@ -39,15 +40,15 @@ exports.up = function (knex) {
       tbl.increments("personel_id");
       tbl.string("isim", 128).notNullable();
       tbl.string("soyisim", 128).notNullable();
-      tbl.integer("telefon1", 11).notNullable().unique();
-      tbl.integer("telefon2", 11).unique();
-      tbl.integer("TC", 11).notNullable().unique();
+      tbl.string("telefon1", 11).notNullable().unique();
+      tbl.string("telefon2", 11).unique();
+      tbl.string("TC", 11).notNullable().unique();
       tbl.string("kan_grubu", 10).notNullable();
       tbl.string("ikamet_adresi", 256).notNullable();
       tbl.boolean("calisma_durumu").notNullable();
       tbl.string("projedeki_saha_adresi", 256).notNullable();
       tbl.string("ADAK_adi_soyadi", 64).notNullable();
-      tbl.integer("ADAK_telefon", 11).notNullable().unique();
+      tbl.string("ADAK_telefon", 11).notNullable().unique();
       tbl.string("ADAK_bagi", 30).notNullable();
       tbl
         .integer("merkez_id")

@@ -4,9 +4,14 @@ import MaterialTable from "@material-table/core";
 
 export default function MerkezTablo() {
   const url = "http://localhost:9000/api/merkez";
+  const url2 = "http://localhost:9000/api/sehir";
+
   const [data, setData] = useState([]);
+  const [city, setCity] = useState([]);
+
   useEffect(() => {
     getData();
+    getSehirler();
   }, []);
 
   const getData = () => {
@@ -14,6 +19,16 @@ export default function MerkezTablo() {
       .then((resp) => resp.json())
       .then((resp) => setData(resp));
   };
+
+  const getSehirler = () => {
+    fetch(url2)
+      .then((resp) => resp.json())
+      .then((resp) => setCity(resp));
+  };
+
+  let sehirID = 0;
+
+  let sehirName = "";
 
   const columns = [
     {
@@ -25,16 +40,16 @@ export default function MerkezTablo() {
           : true,
     },
     {
-      title: "Telefon1",
-      field: "telefon1",
+      title: "Merkez Telefon1",
+      field: "merkez_telefon1",
       validate: (rowData) =>
-        rowData.telefon1 === undefined || rowData.telefon1 === ""
+        rowData.merkez_telefon1 === undefined || rowData.merkez_telefon1 === ""
           ? "Zorunlu"
           : true,
     },
     {
-      title: "Telefon2",
-      field: "telefon2",
+      title: "Merkez Telefon2",
+      field: "merkez_telefon2",
     },
     {
       title: "Merkez Adres",
@@ -72,24 +87,68 @@ export default function MerkezTablo() {
           : true,
     },
     {
-      title: "Şehir ID",
-      field: "sehir_id",
-      editComponent: ({ value, onChange, rowData }) => (
-        <Select
-          value={value}
-          onChange={(event) => onChange(event.target.value)}
+      title: "Şehir İsim",
+      field: "sehir_isim",
+      editComponent: ({ value, onChange }) => (
+        <select
+          onChange={(e) => {
+            sehirName = e.target.value;
+            sehirID = e.target.selectedIndex;
+            console.log(sehirID);
+            onChange(e.target.value);
+          }}
         >
-          {data.map((s) => (
-            <MenuItem key={s.sehir_id} value={s.sehir_adi}>
-              {s.name}
-            </MenuItem>
-          ))}
-        </Select>
+          <option selected value={value}>
+            {value}
+          </option>
+          {city.map(
+            (item) =>
+              item !== value && (
+                <option key={item.sehir_id} value={item.sehir_isim}>
+                  {item.sehir_isim}
+                </option>
+              )
+          )}
+        </select>
       ),
       validate: (rowData) =>
-        rowData.sehir_id === undefined || rowData.sehir_id === ""
+        rowData.sehir_isim === undefined || rowData.sehir_isim === ""
           ? "Zorunlu"
           : true,
+    },
+    {
+      title: "Şehir ID",
+      field: "sehir_id",
+      editable: false,
+      hidden: true,
+      editComponent: ({ value, onChange }) => (
+        <select
+          onChange={(e) => {
+            sehirID = e.target.value;
+            onChange(e.target.value);
+          }}
+        >
+          <option selected value={value}>
+            {value}
+          </option>
+          {city.map(
+            (item) =>
+              item !== value && (
+                <option key={item.sehir_isim} value={item.sehir_id}>
+                  {item.sehir_isim}
+                </option>
+              )
+          )}
+        </select>
+      ),
+      validate: (rowData) =>
+        rowData.sehir_isim === undefined || rowData.sehir_isim === ""
+          ? "Zorunlu"
+          : true,
+      /* validate: (rowData) =>
+        rowData.sehir_id === undefined || rowData.sehir_id === ""
+          ? "Zorunlu"
+          : true, */
     },
   ];
   return (
@@ -102,13 +161,27 @@ export default function MerkezTablo() {
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve, reject) => {
+              let a = {
+                merkez_id: newData.merkez_id,
+                merkez_isim: newData.merkez_isim,
+                merkez_telefon1: newData.merkez_telefon1,
+                merkez_telefon2: newData.merkez_telefon2,
+                merkez_adres: newData.merkez_adres,
+                merkez_koordinati_x: newData.merkez_koordinati_x,
+                merkez_koordinati_y: newData.merkez_koordinati_y,
+                hizmet_baslangic_tarihi: newData.hizmet_baslangic_tarihi,
+                sehir_isim: sehirName,
+                sehir_id: sehirID,
+              };
+              console.log(sehirName);
+              console.log(sehirID);
               //Backend call
               fetch(url, {
                 method: "POST",
                 headers: {
                   "Content-type": "application/json",
                 },
-                body: JSON.stringify(newData),
+                body: JSON.stringify(a),
               })
                 .then((resp) => resp.json())
                 .then((resp) => {
@@ -121,14 +194,16 @@ export default function MerkezTablo() {
               let a = {
                 merkez_id: newData.merkez_id,
                 merkez_isim: newData.merkez_isim,
-                telefon1: newData.telefon1,
-                telefon2: newData.telefon2,
+                merkez_telefon1: newData.merkez_telefon1,
+                merkez_telefon2: newData.merkez_telefon2,
                 merkez_adres: newData.merkez_adres,
                 merkez_koordinati_x: newData.merkez_koordinati_x,
                 merkez_koordinati_y: newData.merkez_koordinati_y,
                 hizmet_baslangic_tarihi: newData.hizmet_baslangic_tarihi,
-                sehir_id: newData.sehir_id,
+                sehir_isim: sehirName == "" ? oldData.sehir_isim : sehirName,
+                sehir_id: sehirID == 0 ? oldData.sehir_id : sehirID,
               };
+              console.log(sehirID);
               console.log(a);
               //Backend call
               fetch(url + "/" + oldData.merkez_id, {

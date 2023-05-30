@@ -6,13 +6,14 @@ const getAll = async () => {
     .select(
       "m.merkez_id",
       "m.merkez_isim",
-      "m.telefon1",
-      "m.telefon2",
+      "m.merkez_telefon1",
+      "m.merkez_telefon2",
       "m.merkez_adres",
       "m.merkez_koordinati_x",
       "m.merkez_koordinati_y",
       "m.hizmet_baslangic_tarihi",
-      "m.sehir_id"
+      "m.sehir_id",
+      "s.sehir_isim"
     );
   return merkez;
 };

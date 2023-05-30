@@ -73,6 +73,9 @@ export default function AdminHeader() {
                 </Menu.Items>
               </Transition>
             </Menu>
+            <a className="text-[20px] font-semibold" href="panel">
+              Yönetici Paneli
+            </a>
             <Logout />
           </div>
         </div>

@@ -74,26 +74,27 @@ exports.seed = async function (knex) {
   await knex("merkez").insert([
     {
       merkez_isim: "İbb afet kordinasyon merkezi",
-      telefon1: 25332890061,
+      merkez_telefon1: "25332890061",
       merkez_adres: "İskenderun",
       merkez_koordinati_x: 36.540673,
       merkez_koordinati_y: 36.540673,
       hizmet_baslangic_tarihi: "08-03-2023",
       sehir_id: 7,
+      sehir_isim: "Hatay",
     },
   ]);
   await knex("personel").insert([
     {
       isim: "ali",
       soyisim: "yılmaz",
-      telefon1: 05333333333,
-      TC: 33333333333,
+      telefon1: "05333333333",
+      TC: "33333333333",
       kan_grubu: "A+",
       ikamet_adresi: "zart mahallesi zort sokak zırt ap no:23 d:4",
       calisma_durumu: true,
       projedeki_saha_adresi: "zort mahallesi zart sokak konteyner no:2",
       ADAK_adi_soyadi: "Mahmut Tuncer",
-      ADAK_telefon: 05444444444,
+      ADAK_telefon: "05444444444",
       ADAK_bagi: "Anne",
       merkez_id: 1,
     },
