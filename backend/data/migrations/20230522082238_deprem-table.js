@@ -82,6 +82,7 @@ exports.up = function (knex) {
       tbl.string("envanter_adi", 64).notNullable();
       tbl.string("envanter_tur", 64).notNullable();
       tbl.string("envanter_aciklama", 500);
+      tbl.integer("envanter_adet", 3).notNullable();
       tbl.string("merkez_isim");
       tbl
         .integer("merkez_id")

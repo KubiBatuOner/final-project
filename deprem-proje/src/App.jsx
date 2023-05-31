@@ -5,12 +5,21 @@ import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Login from "./components/Login";
 import Map from "./components/Map";
-import Gaziantep from "./components/Gaziantep";
 import Entrance from "./components/Entrance";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminHeader from "./components/AdminHeader";
+import Adana from "./components/Sehirler/Adana";
+import Adiyaman from "./components/Sehirler/Adiyaman";
+import Diyarbakir from "./components/Sehirler/Diyarbakir";
+import Gaziantep from "./components/Sehirler/Gaziantep";
+import Hatay from "./components/Sehirler/Hatay";
+import Kahramanmaras from "./components/Sehirler/Kahramanmaras";
+import Kilis from "./components/Sehirler/Kilis";
+import Malatya from "./components/Sehirler/Malatya";
+import Osmaniye from "./components/Sehirler/Osmaniye";
+import Sanliurfa from "./components/Sehirler/Sanliurfa";
 
 function App() {
   return (
@@ -41,7 +50,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Adana />
+          </div>
         </Route>
         <Route exact path="/adiyaman">
           {localStorage.getItem("token") !== null ? (
@@ -49,7 +61,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Adiyaman />
+          </div>
         </Route>
         <Route exact path="/diyarbakir">
           {localStorage.getItem("token") !== null ? (
@@ -57,7 +72,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Diyarbakir />
+          </div>
         </Route>
         <Route exact path="/gaziantep">
           {localStorage.getItem("token") !== null ? (
@@ -65,7 +83,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Gaziantep />
+          </div>
         </Route>
         <Route exact path="/hatay">
           {localStorage.getItem("token") !== null ? (
@@ -73,7 +94,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Hatay />
+          </div>
         </Route>
         <Route exact path="/kahramanmaras">
           {localStorage.getItem("token") !== null ? (
@@ -81,7 +105,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Kahramanmaras />
+          </div>
         </Route>
         <Route exact path="/kilis">
           {localStorage.getItem("token") !== null ? (
@@ -89,7 +116,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Kilis />
+          </div>
         </Route>
         <Route exact path="/malatya">
           {localStorage.getItem("token") !== null ? (
@@ -97,7 +127,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Malatya />
+          </div>
         </Route>
         <Route exact path="/osmaniye">
           {localStorage.getItem("token") !== null ? (
@@ -105,7 +138,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Osmaniye />
+          </div>
         </Route>
         <Route exact path="/sanliurfa">
           {localStorage.getItem("token") !== null ? (
@@ -113,7 +149,10 @@ function App() {
           ) : (
             <Header />
           )}
-          <Gaziantep />
+          <div className="flex max-[1080px]:flex-col">
+            <Map />
+            <Sanliurfa />
+          </div>
         </Route>
         <Route exact path="/login">
           <Header />

@@ -52,6 +52,14 @@ export default function EnvanterTablo() {
       field: "envanter_aciklama",
     },
     {
+      title: "Envanter Adedi",
+      field: "envanter_adet",
+      validate: (rowData) =>
+        rowData.envanter_adet === undefined || rowData.envanter_adet === ""
+          ? "Zorunlu"
+          : true,
+    },
+    {
       title: "Merkez İsim",
       field: "merkez_isim",
       editComponent: ({ value, onChange }) => (
@@ -133,6 +141,7 @@ export default function EnvanterTablo() {
                 envanter_adi: newData.envanter_adi,
                 envanter_tur: newData.envanter_tur,
                 envanter_aciklama: newData.envanter_aciklama,
+                envanter_adet: newData.envanter_adet,
                 merkez_isim: merkezName,
                 merkez_id: merkezID,
               };
@@ -142,7 +151,7 @@ export default function EnvanterTablo() {
                 headers: {
                   "Content-type": "application/json",
                 },
-                body: JSON.stringify(newData),
+                body: JSON.stringify(a),
               })
                 .then((resp) => resp.json())
                 .then((resp) => {
@@ -157,6 +166,7 @@ export default function EnvanterTablo() {
                 envanter_adi: newData.envanter_adi,
                 envanter_tur: newData.envanter_tur,
                 envanter_aciklama: newData.envanter_aciklama,
+                envanter_adet: newData.envanter_adet,
                 merkez_isim:
                   merkezName == "" ? oldData.merkez_isim : merkezName,
                 merkez_id: merkezID == 0 ? oldData.merkez_id : merkezID,

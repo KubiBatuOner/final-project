@@ -3,6 +3,7 @@ const db = require("../../data/db-config");
 const getAll = async () => {
   let hizmet = await db("hizmet as h")
     .leftJoin("merkez as m", "h.merkez_id", "m.merkez_id")
+    .leftJoin("sehir as s", "m.sehir_id", "s.sehir_id")
     .select(
       "h.hizmet_id",
       "h.hizmet_created_at",
@@ -10,7 +11,9 @@ const getAll = async () => {
       "h.hizmet_tipi",
       "h.erisilen_kisi_sayisi",
       "h.merkez_id",
-      "m.merkez_isim"
+      "m.merkez_isim",
+      "s.sehir_isim",
+      "s.sehir_id"
     );
   return hizmet;
 };

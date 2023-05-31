@@ -139,6 +139,7 @@ exports.seed = async function (knex) {
     {
       envanter_adi: "Araba",
       envanter_tur: "Araç",
+      envanter_adet: 4,
       merkez_isim: "İbb afet kordinasyon merkezi",
       merkez_id: 1,
     },
