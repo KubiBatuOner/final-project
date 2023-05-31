@@ -32,6 +32,11 @@ export default function HizmetTablo() {
 
   const columns = [
     {
+      title: "Sisteme Giriş Tarihi",
+      field: "hizmet_created_at",
+      editable: false,
+    },
+    {
       title: "Hizmet Dönemi",
       field: "donem",
       validate: (rowData) =>
@@ -121,12 +126,19 @@ export default function HizmetTablo() {
         title="Hizmet Tablosu"
         columns={columns}
         data={data}
-        options={{ addRowPosition: "first" }}
+        options={{
+          addRowPosition: "first",
+          headerStyle: {
+            backgroundColor: "#019ec9",
+            color: "#FFF",
+          },
+        }}
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve, reject) => {
               let a = {
                 hizmet_id: newData.hizmet_id,
+                hizmet_created_at: newData.hizmet_created_at,
                 donem: newData.donem,
                 hizmet_tipi: newData.hizmet_tipi,
                 erisilen_kisi_sayisi: newData.erisilen_kisi_sayisi,
@@ -151,6 +163,7 @@ export default function HizmetTablo() {
             new Promise((resolve, reject) => {
               let a = {
                 hizmet_id: newData.hizmet_id,
+                hizmet_created_at: newData.hizmet_created_at,
                 donem: newData.donem,
                 hizmet_tipi: newData.hizmet_tipi,
                 erisilen_kisi_sayisi: newData.erisilen_kisi_sayisi,

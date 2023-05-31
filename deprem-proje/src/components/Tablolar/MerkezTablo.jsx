@@ -153,7 +153,13 @@ export default function MerkezTablo() {
         title="Merkez Tablosu"
         columns={columns}
         data={data}
-        options={{ addRowPosition: "first" }}
+        options={{
+          addRowPosition: "first",
+          headerStyle: {
+            backgroundColor: "#019ec9",
+            color: "#FFF",
+          },
+        }}
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve, reject) => {

@@ -1,9 +1,21 @@
-import { useState } from "react";
-import { sehirlerData } from "./sehirlerData";
+import { useEffect, useState } from "react";
+/* import { sehirlerData } from "./sehirlerData"; */
 import { dummyData } from "./dummyData";
+import axios from "axios";
 
 export default function Gaziantep() {
   const [selectedCity, setSelectedCity] = useState("");
+  const [data, setData] = useState([]);
+  const [city, setCity] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:9000/api/personel")
+      .then((res) => setData(res.data));
+    axios
+      .get("http://localhost:9000/api/sehir")
+      .then((res) => setCity(res.data));
+  }, []);
 
   const handleCityClick = (city) => {
     setSelectedCity(city);
@@ -19,22 +31,22 @@ export default function Gaziantep() {
               ŞEHİRLER
             </div>
             <div>
-              {sehirlerData.map((s) =>
-                selectedCity === `${s.sehirAdi}` ? (
+              {city.map((s) =>
+                selectedCity === `${s.sehir_isim}` ? (
                   <div
-                    key={s.id}
+                    key={s.sehir_id}
                     className="font-semibold xl:text-[1.7rem] my-6 rounded-2 border-[#019ec9] bg-green-500 border-4 w-[20vw] pl-3 cursor-pointer"
-                    onClick={() => handleCityClick(`${s.sehirAdi}`)}
+                    onClick={() => handleCityClick(`${s.sehir_isim}`)}
                   >
-                    {s.sehirAdi}
+                    {s.sehir_isim}
                   </div>
                 ) : (
                   <div
-                    key={s.id}
+                    key={s.sehir_id}
                     className="font-semibold xl:text-[1.7rem] my-6 rounded-2 border-[#019ec9] border-4 w-[20vw] pl-3 cursor-pointer"
-                    onClick={() => handleCityClick(`${s.sehirAdi}`)}
+                    onClick={() => handleCityClick(`${s.sehir_isim}`)}
                   >
-                    {s.sehirAdi}
+                    {s.sehir_isim}
                   </div>
                 )
               )}
@@ -46,16 +58,16 @@ export default function Gaziantep() {
             <div className="mb-8 font-bold text-[#019EC9] text-[3.5rem] leading-[4.5rem]">
               ŞEHİR BİLGİSİ
             </div>
-            {dummyData.map(
+            {data.map(
               (a) =>
-                selectedCity === a.sehir && (
+                selectedCity == a.sehir_isim && (
                   <div
-                    key={a.id}
+                    key={a.sehir_id}
                     className="h-auto border-4 border-[#019EC9] mb-8"
                   >
                     <div>
                       <h2 className="ml-5 mt-3 font-bold text-[2rem]">
-                        {a.sehir}
+                        {a.sehir_isim}
                       </h2>
                     </div>
                     <div className="mt-5 border-t-2">

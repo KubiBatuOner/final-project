@@ -52,7 +52,13 @@ export default function SehirTablo() {
         title="Şehir Tablosu"
         columns={columns}
         data={data}
-        options={{ addRowPosition: "first" }}
+        options={{
+          addRowPosition: "first",
+          headerStyle: {
+            backgroundColor: "#019ec9",
+            color: "#FFF",
+          },
+        }}
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve, reject) => {

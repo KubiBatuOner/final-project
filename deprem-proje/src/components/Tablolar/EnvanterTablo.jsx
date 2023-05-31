@@ -118,7 +118,13 @@ export default function EnvanterTablo() {
         title="Envanter Tablosu"
         columns={columns}
         data={data}
-        options={{ addRowPosition: "first" }}
+        options={{
+          addRowPosition: "first",
+          headerStyle: {
+            backgroundColor: "#019ec9",
+            color: "#FFF",
+          },
+        }}
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve, reject) => {

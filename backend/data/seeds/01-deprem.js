@@ -82,6 +82,16 @@ exports.seed = async function (knex) {
       sehir_isim: "Hatay",
       sehir_id: 7,
     },
+    {
+      merkez_isim: "Nurdağı 1 Konteyner Kenti - Görüşme konteynerı",
+      merkez_telefon1: "05323301633",
+      merkez_adres: "Nurdağı",
+      merkez_koordinati_x: 35.540678,
+      merkez_koordinati_y: 33.540679,
+      hizmet_baslangic_tarihi: "10-03-2023",
+      sehir_isim: "Gaziantep",
+      sehir_id: 1,
+    },
   ]);
   await knex("personel").insert([
     {
@@ -98,6 +108,21 @@ exports.seed = async function (knex) {
       ADAK_bagi: "Anne",
       merkez_isim: "İbb afet kordinasyon merkezi",
       merkez_id: 1,
+    },
+    {
+      isim: "Sümeyra",
+      soyisim: "Al",
+      telefon1: "05333333332",
+      TC: "33333333334",
+      kan_grubu: "B+",
+      ikamet_adresi: "zart mahallesi zort sokak zırt ap no:23 d:4",
+      calisma_durumu: true,
+      projedeki_saha_adresi: "zort mahallesi zart sokak konteyner no:2",
+      ADAK_adi_soyadi: "Mehmet Güçlü",
+      ADAK_telefon: "05444444499",
+      ADAK_bagi: "Baba",
+      merkez_isim: "Nurdağı 1 Konteyner Kenti - Görüşme konteynerı",
+      merkez_id: 2,
     },
   ]);
 

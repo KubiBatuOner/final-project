@@ -5,6 +5,7 @@ const getAll = async () => {
     .leftJoin("merkez as m", "h.merkez_id", "m.merkez_id")
     .select(
       "h.hizmet_id",
+      "h.hizmet_created_at",
       "h.donem",
       "h.hizmet_tipi",
       "h.erisilen_kisi_sayisi",
