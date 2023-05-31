@@ -54,7 +54,7 @@ export default function Hatay() {
       <div>
         <div>
           <div className="mb-8 font-bold text-[#019EC9] text-[3.5rem] leading-[4.5rem]">
-            ŞEHİR BİLGİSİ
+            {sehir.toLocaleUpperCase("tr-TR")}
           </div>
           <div className="mt-5 border-t-2">
             <h3 className="font-semibold text-[1.6rem] ml-4 h-auto">
