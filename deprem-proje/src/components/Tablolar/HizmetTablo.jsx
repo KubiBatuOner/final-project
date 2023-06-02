@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../../App.css";
 import MaterialTable from "@material-table/core";
+import { tr } from "date-fns/locale";
 
 export default function HizmetTablo() {
   const url = "http://localhost:9000/api/hizmet";
@@ -35,6 +36,8 @@ export default function HizmetTablo() {
       title: "Sisteme Giriş Tarihi",
       field: "hizmet_created_at",
       editable: false,
+      type: "date",
+      dateSetting: { locale: tr },
     },
     {
       title: "Hizmet Dönemi",

@@ -96,7 +96,7 @@ exports.up = function (knex) {
     .createTable("hizmet", (tbl) => {
       tbl.increments("hizmet_id");
       tbl.timestamp("hizmet_created_at").defaultTo(knex.fn.now());
-      tbl.dateTime("donem", { precision: 3 }).defaultTo(knex.fn.now());
+      tbl.string("donem");
       tbl.string("hizmet_tipi", 64).notNullable();
       tbl.integer("erisilen_kisi_sayisi", 5).notNullable();
       tbl.string("merkez_isim");

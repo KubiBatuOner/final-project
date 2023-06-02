@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../../App.css";
 import MaterialTable from "@material-table/core";
+import { tr } from "date-fns/locale";
 
 export default function MerkezTablo() {
   const url = "http://localhost:9000/api/merkez";
@@ -80,6 +81,8 @@ export default function MerkezTablo() {
     {
       title: "Hizmet Başlangıç Tarihi",
       field: "hizmet_baslangic_tarihi",
+      type: "date",
+      dateSetting: { locale: tr },
       validate: (rowData) =>
         rowData.hizmet_baslangic_tarihi === undefined ||
         rowData.hizmet_baslangic_tarihi === ""
