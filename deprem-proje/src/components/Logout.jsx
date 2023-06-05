@@ -20,7 +20,7 @@ export default function Logout() {
       ) : (
         <button
           onClick={triggerLogout}
-          className="flex flex-row gap-2 ml-8 rounded font-bold"
+          className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg"
         >
           Çıkış Yap
         </button>

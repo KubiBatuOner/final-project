@@ -14,7 +14,7 @@ export default function Dashboard() {
     setActiveSection(section);
   };
   return (
-    <div>
+    <div className="bg-white">
       <NewAdminHeader />
       <div className="mb-8 ml-6">
         <nav>

@@ -34,13 +34,13 @@ export default function Login() {
       .catch((err) => console.log(err.response.data));
 
   return (
-    <div className="flex justify-center items-center h-auto m-5 rounded-[40px] bg-[#D9E8E7]">
-      <div className="flex bg-white h-full w-full rounded-[40px] my-5 mx-5 ">
-        <div className="flex justify-between items-start">
+    <div className="flex justify-center items-center h-auto rounded-[40px] bg-[#D9E8E7]">
+      <div className="flex bg-white w-full rounded-[40px] my-5 mx-5 ">
+        <div className="flex-1 flex flex-col justify-between">
           <NewHeader />
         </div>
-        <div className="border-black p-8 mt-8 border rounded-md shadow-md w-1/2 mx-auto xs:w-2/3">
-          <h2 className="font-bold text-4xl ">Giriş Yap</h2>
+        <div className="flex-2 m-10 p-10 rounded-lg border-black mt-8 border shadow-md w-3/4 xs:w-2/3">
+          <h2 className="font-bold text-4xl mb-10">Yönetici Girişi</h2>
           <form
             onSubmit={handleSubmit(handleLogin)}
             className="loginForm flex flex-col mt-4"
@@ -60,7 +60,7 @@ export default function Login() {
                 })}
               />
               {errors.name && (
-                <span className="text-black font-semibold">
+                <span className="text-red-600 font-semibold">
                   {errors.name.message}
                 </span>
               )}
@@ -88,14 +88,14 @@ export default function Login() {
                 </button>
               </div>
               {errors.password && (
-                <span className="text-black font-semibold">
+                <span className="text-red-600 font-semibold">
                   {errors.password.message}
                 </span>
               )}
             </div>
             <div className="flex justify-center mt-6">
               <button
-                className="mt-4 mr-2 border w-1/2 cursor-pointer border-black rounded-md hover:bg-[#019ec9] hover:text-white p-2"
+                className="mt-4 mr-2 border w-1/2 cursor-pointer border-black rounded-md hover:bg-volunteer p-2"
                 disabled={!isValid}
                 type="submit"
               >

@@ -25,32 +25,42 @@ export default function NewAdminHeader() {
     <div className="flex justify-between items-center my-6">
       <img src={logo} className="w-[20vw]" alt="Logo" />
       <div className="flex gap-4 ">
-        <div className="flex gap-2 py-2 px-4 rounded-md items-center hover:bg-ozi">
-          <img src={harita} className=" rounded" alt="Logo" />
-          <button onClick={handleSend} className="flex gap-2 rounded">
+        <div className="flex gap-2 py-2 px-4 rounded-md hover:bg-ozi">
+          <button
+            onClick={handleSend}
+            className="flex gap-2 rounded items-center text-[#000C5C] text-lg"
+          >
+            <img src={harita} className=" rounded" alt="Logo" />
             Harita Bilgileri
           </button>
         </div>
         <div
           className={
             activeSection === "ayarlar"
-              ? "mr-4 active flex gap-2 py-2 px-4 rounded-md items-center bg-ozi hover:bg-ozi"
-              : "mr-4"
+              ? "active flex gap-2 py-2 px-4 rounded-md bg-ozi hover:bg-ozi"
+              : ""
           }
           onClick={() => handleSectionClick("ayarlar")}
         >
-          <img src={ayarlar} className=" rounded" alt="Logo" />
-          <button className="rounded" onClick={handleSendAbout}>
+          <button
+            className="flex gap-2 rounded items-center text-[#000C5C] text-lg"
+            onClick={handleSendAbout}
+          >
+            <img src={ayarlar} className=" rounded" alt="Logo" />
             Sistem Ayarları
           </button>
         </div>
         <div className="flex gap-2 py-2 px-4 rounded-md items-center hover:bg-ozi">
-          <img src={gonullu} className=" rounded" alt="Logo" />
-          <button className="flex gap-2 rounded">Gönüllüler</button>
+          <button className="flex gap-2 rounded items-center text-[#000C5C] text-lg">
+            <img src={gonullu} className=" rounded" alt="Logo" />
+            Gönüllüler
+          </button>
         </div>
         <div className="flex gap-2 py-2 px-4 rounded-md items-center hover:bg-ozi">
-          <img src={iletisim} className=" rounded" alt="Logo" />
-          <button className="flex gap-2 rounded">İletişim</button>
+          <button className="flex gap-2 rounded items-center text-[#000C5C] text-lg">
+            <img src={iletisim} className=" rounded" alt="Logo" />
+            İletişim
+          </button>
         </div>
         <div className="flex gap-2 py-2 px-4 rounded-md items-center hover:bg-ozi">
           <Logout />

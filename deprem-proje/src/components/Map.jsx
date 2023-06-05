@@ -39,7 +39,7 @@ export default function Map() {
   }, []);
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center w-[50vw]">
         <Harita></Harita>
       </div>
     </div>
