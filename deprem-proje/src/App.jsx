@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
 import Login from "./components/Login";
-import Map from "./components/Map";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
-import AdminHeader from "./components/AdminHeader";
 import Adana from "./components/Sehirler/Adana";
 import Adiyaman from "./components/Sehirler/Adiyaman";
 import Diyarbakir from "./components/Sehirler/Diyarbakir";
@@ -19,8 +16,8 @@ import Malatya from "./components/Sehirler/Malatya";
 import Osmaniye from "./components/Sehirler/Osmaniye";
 import Sanliurfa from "./components/Sehirler/Sanliurfa";
 import HomePage from "./components/HomePage";
-import NewAdminHeader from "./components/NewAdminHeader";
 import IntroPage from "./components/IntroPage";
+import HeaderPage from "./components/HeaderPage";
 
 function App() {
   return (
@@ -34,114 +31,124 @@ function App() {
             <IntroPage />
           </Route>
           <Route exact path="/adana">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Adana />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Adana />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Adana />
-            </div>
           </Route>
           <Route exact path="/adiyaman">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Adiyaman />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Adiyaman />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Adiyaman />
-            </div>
           </Route>
           <Route exact path="/diyarbakir">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Diyarbakir />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Diyarbakir />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Diyarbakir />
-            </div>
           </Route>
           <Route exact path="/gaziantep">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Gaziantep />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Gaziantep />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Gaziantep />
-            </div>
           </Route>
           <Route exact path="/hatay">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Hatay />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Hatay />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Hatay />
-            </div>
           </Route>
           <Route exact path="/kahramanmaras">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <NewAdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Kahramanmaras />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Kahramanmaras />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Kahramanmaras />
-            </div>
           </Route>
           <Route exact path="/kilis">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Kilis />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Kilis />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Kilis />
-            </div>
           </Route>
           <Route exact path="/malatya">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Malatya />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Malatya />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Malatya />
-            </div>
           </Route>
           <Route exact path="/osmaniye">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Osmaniye />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Osmaniye />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Osmaniye />
-            </div>
           </Route>
           <Route exact path="/sanliurfa">
+            <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <AdminHeader />
+              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Sanliurfa />
+              </div>
             ) : (
-              <Header />
+              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+                <Sanliurfa />
+              </div>
             )}
-            <div className="flex max-[1080px]:flex-col">
-              <Map />
-              <Sanliurfa />
-            </div>
           </Route>
           <Route exact path="/login">
             <Login />

@@ -50,10 +50,10 @@ export default function Kahramanmaras() {
   }, []);
 
   return (
-    <div className="flex ml-10 flex-col justify-center rounded-2xl border-[#019ec9] border-4 p-5 xl:flex-row">
+    <div className="flex flex-col justify-center rounded-2xl p-5">
       <div>
         <div>
-          <div className="mb-8 font-bold text-[#019EC9] text-[3.5rem] leading-[4.5rem]">
+          <div className="mb-8 font-bold text-[#000C5C] text-[3.5rem] leading-[4.5rem]">
             {sehir.toLocaleUpperCase("tr-TR")}
           </div>
           <div className="mt-5 border-t-2">
