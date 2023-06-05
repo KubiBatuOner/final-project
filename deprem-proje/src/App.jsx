@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Login from "./components/Login";
 import Map from "./components/Map";
-import Entrance from "./components/Entrance";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
@@ -20,21 +19,15 @@ import Kilis from "./components/Sehirler/Kilis";
 import Malatya from "./components/Sehirler/Malatya";
 import Osmaniye from "./components/Sehirler/Osmaniye";
 import Sanliurfa from "./components/Sehirler/Sanliurfa";
+import HomePage from "./components/HomePage";
+import NewAdminHeader from "./components/NewAdminHeader";
 
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Entrance />
-        </Route>
-        <Route exact path="/STK">
-          {localStorage.getItem("token") !== null ? (
-            <AdminHeader />
-          ) : (
-            <Header />
-          )}
-          <Map />
+          <HomePage />
         </Route>
         <Route exact path="/hakkimizda">
           {localStorage.getItem("token") !== null ? (
@@ -101,7 +94,7 @@ function App() {
         </Route>
         <Route exact path="/kahramanmaras">
           {localStorage.getItem("token") !== null ? (
-            <AdminHeader />
+            <NewAdminHeader />
           ) : (
             <Header />
           )}
@@ -155,7 +148,6 @@ function App() {
           </div>
         </Route>
         <Route exact path="/login">
-          <Header />
           <Login />
         </Route>
         <Route exact path="/bireysel">

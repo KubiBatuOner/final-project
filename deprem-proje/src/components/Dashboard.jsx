@@ -6,7 +6,7 @@ import PersonelTablo from "./Tablolar/PersonelTablo";
 import HizmetTablo from "./Tablolar/HizmetTablo";
 import EnvanterTablo from "./Tablolar/EnvanterTablo";
 import SehirTablo from "./Tablolar/SehirTablo";
-import AdminHeader from "./AdminHeader";
+import NewAdminHeader from "./NewAdminHeader";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("personel");
@@ -14,8 +14,8 @@ export default function Dashboard() {
     setActiveSection(section);
   };
   return (
-    <div className="App2">
-      <AdminHeader />
+    <div>
+      <NewAdminHeader />
       <div className="mb-8 ml-6">
         <nav>
           <ul className="flex">

@@ -20,7 +20,7 @@ export default function Logout() {
       ) : (
         <button
           onClick={triggerLogout}
-          className="text-[20px] font-bold py-2 px-6 rounded-2xl border-[#019ec9] border-4 hover:bg-[#019ec9] hover:text-white"
+          className="flex flex-row gap-2 ml-8 rounded font-bold"
         >
           Çıkış Yap
         </button>
