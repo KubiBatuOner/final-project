@@ -22,7 +22,7 @@ export default function NewAdminHeader() {
     setTimeout(() => history.push("/panel"));
   }
   return (
-    <div className="flex justify-between items-center my-6">
+    <div className="flex justify-between items-center pt-2 px-2">
       <img src={logo} className="w-[20vw]" alt="Logo" />
       <div className="flex gap-4 ">
         <div className="flex gap-2 py-2 px-4 rounded-md hover:bg-ozi">
@@ -62,7 +62,7 @@ export default function NewAdminHeader() {
             İletişim
           </button>
         </div>
-        <div className="flex gap-2 py-2 px-4 rounded-md items-center hover:bg-ozi">
+        <div className="flex gap-2 py-2 px-4 mr-2 rounded-md items-center hover:bg-ozi">
           <Logout />
         </div>
       </div>

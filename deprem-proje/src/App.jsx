@@ -21,7 +21,7 @@ import HeaderPage from "./components/HeaderPage";
 
 function App() {
   return (
-    <div className="bg-[#e4f2f7] py-16">
+    <div className="bg-[url('Desktop-Landing.png')] py-16">
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -33,11 +33,11 @@ function App() {
           <Route exact path="/adana">
             <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+              <div className="absolute left-[320px] bottom-40 rounded-lg">
                 <Adana />
               </div>
             ) : (
-              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+              <div className="absolute right-40 -bottom-16 rounded-lg">
                 <Adana />
               </div>
             )}
@@ -81,11 +81,11 @@ function App() {
           <Route exact path="/hatay">
             <HeaderPage />
             {localStorage.getItem("token") !== null ? (
-              <div className="absolute left-[320px] bottom-40 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+              <div className="absolute right-40 bottom-40 rounded-lg">
                 <Hatay />
               </div>
             ) : (
-              <div className="absolute right-40 -bottom-16 bg-[#ff8c00] rounded-lg border-4 border-[#000C5C]">
+              <div className="absolute right-40 -bottom-16 rounded-lg">
                 <Hatay />
               </div>
             )}
