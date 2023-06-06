@@ -106,7 +106,15 @@ export default function Adiyaman() {
             <div>
               {kurumData.map((a, index) => (
                 <ul key={index} className="list-disc">
-                  <li className="ml-11 text-[1.3rem]">{a.kurum_adi}</li>
+                  <li className="ml-11 text-[1.3rem]">
+                    <a
+                      href={a.kurum_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {a.kurum_adi}
+                    </a>
+                  </li>
                 </ul>
               ))}
             </div>

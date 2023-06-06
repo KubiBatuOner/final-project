@@ -12,7 +12,6 @@ export default function Intro() {
           <h2 className="flex justify-start mb-6 font-roboto font-bold text-[#030E5E] text-[75px] leading-[4.5rem]">
             Hakkımızda
           </h2>
-
           <p className="flex justify-start py-5 text-lg text-[#1F2937] text-[1.4rem] text-start">
             Travma ve Afet Ruh Sağlığı Çalışmaları Derneği, bireysel ve
             toplumsal travmalar konusunda çeşitli alanlarda bilgilendirme
