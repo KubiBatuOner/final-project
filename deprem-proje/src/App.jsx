@@ -21,7 +21,7 @@ import HeaderPage from "./components/HeaderPage";
 
 function App() {
   return (
-    <div className="bg-[url('Desktop-Landing.png')] py-16">
+    <div className="bg-[url('Desktop-Landing.png')] min-h-screen py-16">
       <div className="App">
         <Switch>
           <Route exact path="/">

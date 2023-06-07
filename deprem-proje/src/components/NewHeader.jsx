@@ -75,12 +75,12 @@ export default function NewHeader() {
               <button className="hidden">Yönetici Paneli</button>
             )}
           </div>
-          <div className="flex items-center flex-row rounded-md hover:bg-ozi">
+          <div className="flex items-center flex-row rounded-md hover:bg-ozi hidden">
             {localStorage.getItem("token") !== null ? (
               <Logout />
             ) : (
               <NavLink to="/login">
-                <button className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg">
+                <button className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg ">
                   Yönetici Girişi
                 </button>
               </NavLink>
