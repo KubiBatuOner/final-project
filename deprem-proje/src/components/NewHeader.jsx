@@ -7,6 +7,8 @@ import gonullu from "../images/gonullu.svg";
 import iletisim from "../images/iletisim.svg";
 import { NavLink } from "react-router-dom";
 import Logout from "./Logout";
+import harita from "../images/Vector.svg";
+
 export default function NewHeader() {
   const history = useHistory();
   function handleSend() {
@@ -28,7 +30,7 @@ export default function NewHeader() {
               className="flex flex-row gap-2 ml-8  rounded items-center text-[#000C5C] text-lg"
               onClick={handleSend}
             >
-              <img src={anasayfa} className="rounded" alt="Logo" />
+              <img src={harita} className="rounded" alt="Logo" />
               Anasayfa
             </button>
           </div>

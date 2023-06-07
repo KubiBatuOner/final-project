@@ -1,7 +1,5 @@
 import Intro from "./Intro";
 import NewHeader from "./newHeader";
-import Volunteer from "./Volunteer";
-import Kart from "./Kart";
 
 export default function IntroPage() {
   return (
@@ -10,12 +8,8 @@ export default function IntroPage() {
         <div className="flex-1 flex flex-col justify-between">
           <NewHeader />
         </div>
-        <div className="flex-2 m-10 rounded-lg flex flex-col gap-10 bg-hakkinda pt-5 px-8">
+        <div className="flex-2 rounded-lg flex flex-col gap-10 bg-hakkinda pt-5 px-8">
           <Intro />
-          <div className="flex justify-between">
-            {localStorage.getItem("token") !== null ? "" : <Kart />}
-            {localStorage.getItem("token") !== null ? "" : <Volunteer />}
-          </div>
         </div>
       </div>
     </div>
