@@ -162,6 +162,9 @@ function App() {
             </Route>
           </PrivateRoute>
         </Switch>
+        <footer className="flex text-[#3C4058] text-center justify-center p-4 underline font-medium">
+          KVKK ve Gizlilik Sözleşmesi ile Kullanım Koşulları © TARDE 2023
+        </footer>
       </div>
     </div>
   );
