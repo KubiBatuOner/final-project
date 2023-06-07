@@ -1,6 +1,4 @@
 .region {
-  fill: #ed9121;
-  stroke: #ccc;
   stroke-linejoin: round;
   fill-rule: evenodd;
   clip-rule: evenodd;
@@ -13,4 +11,8 @@
 
 .label-text {
   font-weight: 600;
+}
+
+.selected {
+  fill: #ed9121;
 }
