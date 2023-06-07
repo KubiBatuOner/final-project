@@ -129,7 +129,7 @@ export default function EnvanterTablo() {
         options={{
           addRowPosition: "first",
           headerStyle: {
-            backgroundColor: "#019ec9",
+            backgroundColor: "#000C5C",
             color: "#FFF",
           },
         }}

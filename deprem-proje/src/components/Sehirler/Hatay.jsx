@@ -6,12 +6,6 @@ export default function Hatay() {
   const [envanterData, setEnvanterData] = useState([]);
   const [kurumData, setKurumData] = useState([]);
 
-  const envanterler = [];
-
-  envanterData.map((e) => envanterler.push(e.envanter_adet));
-  console.log(envanterler);
-  const envanterToplam = envanterler.reduce((c, d) => c + d, 0);
-
   const sehir = "Hatay";
 
   useEffect(() => {
@@ -36,34 +30,38 @@ export default function Hatay() {
     <div className="flex flex-col justify-center rounded-2xl p-5 bg-white">
       <div>
         <div>
-          <div className="mb-8 font-bold text-[#000C5C] text-[24px] leading-[28.13px]">
+          <div className="mb-8 font-bold text-[#000C5C] text-[1.8rem] leading-[28.13px]">
             {sehir.toLocaleUpperCase("tr-TR")}
           </div>
           <div className="mt-5">
             {merkezData.map((a, index) => (
               <ul key={index} className="list-image-[url(yuvarlak.svg)]">
-                <li className="ml-11 text-[1.3rem] font-medium text-[#000C5C]">
+                <li className="ml-11 text-[1.2rem] font-medium text-[#000C5C]">
                   {a.merkez_isim}
                 </li>
               </ul>
             ))}
           </div>
           <div className="mt-5">
-            <h3 className="font-semibold text-[1.6rem] ml-4">Araç Sayısı</h3>
+            <h3 className="font-semibold text-[1.5rem] ml-4">Araç Sayısı</h3>
             <div>
-              <ul className="list-disc">
-                <li className="ml-11 text-[1.3rem]">{envanterToplam}</li>
-              </ul>
+              {envanterData.map((a, index) => (
+                <ul key={index} className="list-disc">
+                  <li className="ml-11 text-[1.2rem]">
+                    {a.envanter_adi}: {a.envanter_adet}
+                  </li>
+                </ul>
+              ))}
             </div>
           </div>
           <div className="mt-5">
-            <div className="font-semibold text-[1.6rem] ml-4">
+            <div className="font-semibold text-[1.5rem] ml-4">
               İş Birliği Yapılan Kurumlar
             </div>
             <div>
               {kurumData.map((a, index) => (
                 <ul key={index} className="list-disc">
-                  <li className="ml-11 text-[1.3rem]">
+                  <li className="ml-11 text-[1.2rem]">
                     <a
                       className="underline text-[#000C5C]"
                       href={a.kurum_link}

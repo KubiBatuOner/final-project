@@ -7,10 +7,8 @@ import gonullu from "../images/gonullu.svg";
 import iletisim from "../images/iletisim.svg";
 import { NavLink } from "react-router-dom";
 import Logout from "./Logout";
-
 export default function NewHeader() {
   const history = useHistory();
-
   function handleSend() {
     setTimeout(() => history.push("/"));
   }
@@ -20,22 +18,21 @@ export default function NewHeader() {
   function handleSendContact() {
     setTimeout(() => history.push("/bireysel"));
   }
-
   return (
     <>
       <div>
         <img src={logo} className="w-[12vw] ml-4 mt-4 mb-12" alt="Logo" />
         <div className="flex flex-col gap-4 ">
-          <div className=" flex-row items-center rounded-md hover:bg-ozi">
+          <div className=" flex-row items-center rounded-md w-[60%] hover:bg-ozi">
             <button
-              className="flex flex-row gap-2 ml-8 rounded items-center text-[#000C5C] text-lg"
+              className="flex flex-row gap-2 ml-8  rounded items-center text-[#000C5C] text-lg"
               onClick={handleSend}
             >
               <img src={anasayfa} className="rounded" alt="Logo" />
               Anasayfa
             </button>
           </div>
-          <div className=" flex-row items-center rounded-md hover:bg-ozi">
+          <div className=" flex-row items-center rounded-md w-[60%] hover:bg-ozi">
             <button
               className="flex flex-row gap-2 ml-8 rounded items-center text-[#000C5C] text-lg"
               onClick={handleSendAbout}
@@ -44,7 +41,7 @@ export default function NewHeader() {
               Hakkımızda
             </button>
           </div>
-          <div className=" items-center rounded-md hover:bg-ozi">
+          <div className=" items-center rounded-md w-[60%] hover:bg-ozi">
             {localStorage.getItem("token") !== null ? (
               <button className="hidden">Gönüllü Ol</button>
             ) : (
@@ -54,7 +51,7 @@ export default function NewHeader() {
               </button>
             )}
           </div>
-          <div className=" flex-row rounded-md hover:bg-ozi">
+          <div className=" flex-row rounded-md w-[60%] hover:bg-ozi">
             {localStorage.getItem("token") !== null ? (
               <button className="hidden">İletişim</button>
             ) : (
@@ -64,7 +61,7 @@ export default function NewHeader() {
               </button>
             )}
           </div>
-          <div className="flex items-center flex-row rounded-md hover:bg-ozi">
+          <div className="flex items-center flex-row rounded-md w-[60%] hover:bg-ozi">
             {localStorage.getItem("token") !== null ? (
               <NavLink to="/panel">
                 <button className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg">
@@ -75,12 +72,12 @@ export default function NewHeader() {
               <button className="hidden">Yönetici Paneli</button>
             )}
           </div>
-          <div className="flex items-center flex-row rounded-md hover:bg-ozi hidden">
+          <div className="flex items-center flex-row rounded-md w-[60%] hover:bg-ozi hidden">
             {localStorage.getItem("token") !== null ? (
               <Logout />
             ) : (
               <NavLink to="/login">
-                <button className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg ">
+                <button className="flex flex-row gap-2 ml-8 rounded font-bold text-[#000C5C] text-lg">
                   Yönetici Girişi
                 </button>
               </NavLink>

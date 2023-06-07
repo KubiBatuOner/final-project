@@ -22,8 +22,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "personel"
-                  ? "mr-4 active cursor-pointer font-bold  rounded-2xl border-[#019EC9] border-4  text-white bg-[#019EC9] px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold rounded-2xl border-ozi border-4 text-[#000C5C] bg-ozi px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("personel")}
             >
@@ -32,8 +32,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "merkez"
-                  ? "mr-4 active cursor-pointer font-bold  bg-[#019EC9]  rounded-2xl border-[#019EC9] border-4 text-white px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold bg-ozi rounded-2xl border-ozi border-4 text-[#000C5C] px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("merkez")}
             >
@@ -42,8 +42,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "kurum"
-                  ? "mr-4 active cursor-pointer font-bold  bg-[#019EC9]  rounded-2xl border-[#019EC9] border-4  text-white px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold bg-ozi rounded-2xl border-ozi border-4 text-[#000C5C] px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("kurum")}
             >
@@ -52,8 +52,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "hizmet"
-                  ? "mr-4 active cursor-pointer font-bold  bg-[#019EC9]  rounded-2xl border-[#019EC9] border-4  text-white px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold bg-ozi rounded-2xl border-ozi border-4 text-[#000C5C] px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("hizmet")}
             >
@@ -62,8 +62,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "envanter"
-                  ? "mr-4 active cursor-pointer font-bold  bg-[#019EC9]  rounded-2xl border-[#019EC9] border-4  text-white px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold bg-ozi rounded-2xl border-ozi border-4 text-[#000C5C] px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("envanter")}
             >
@@ -72,8 +72,8 @@ export default function Dashboard() {
             <li
               className={
                 activeSection === "sehir"
-                  ? "mr-4 active cursor-pointer font-bold  bg-[#019EC9]  rounded-2xl border-[#019EC9] border-4  text-white px-3"
-                  : "mr-4 cursor-pointer font-bold"
+                  ? "mr-4 active cursor-pointer font-bold bg-ozi rounded-2xl border-ozi border-4 text-[#000C5C] px-3"
+                  : "mr-4 cursor-pointer font-bold text-[#000C5C]"
               }
               onClick={() => handleSectionClick("sehir")}
             >
