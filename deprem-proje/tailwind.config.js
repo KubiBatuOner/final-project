@@ -9,6 +9,7 @@ export default {
         map: "rgba(251, 240, 212, 0.2)",
         volunteer: "rgba(248, 203, 78, 1)",
         hakkinda: "rgba(251, 240, 212, 0.2)",
+        mobil: "rgba(0, 12, 92, 0.06)",
       },
       flex: {
         2: "2 2 0%",

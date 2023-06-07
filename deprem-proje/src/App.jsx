@@ -17,10 +17,11 @@ import KilisPage from "./components/SehirPages/KilisPage";
 import MalatyaPage from "./components/SehirPages/MalatyaPage";
 import OsmaniyePage from "./components/SehirPages/OsmaniyePage";
 import SanliurfaPage from "./components/SehirPages/SanliurfaPage";
+import tardeDarkLogo from "./images/tardeDarkLogo.svg";
 
 function App() {
   return (
-    <div className="bg-[url('Desktop-Landing.png')] min-h-screen py-16 font-['Roboto']">
+    <div className="bg-[url('Desktop-Landing.png')] min-h-screen py-16 font-['Roboto'] max-[415px]:bg-[url('mapZone.png')] max-[415px]:p-0">
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -71,8 +72,9 @@ function App() {
             </Route>
           </PrivateRoute>
         </Switch>
-        <footer className="flex text-[#3C4058] text-center justify-center p-4 underline font-medium">
-          KVKK ve Gizlilik Sözleşmesi ile Kullanım Koşulları © TARDE 2023
+        <footer className="flex text-[#3C4058] text-center justify-center p-4 underline font-medium max-[415px]:bg-[#3C4058] max-[415px]:text-white max-[415px]:flex-col max-[415px]:gap-8 max-[415px]:text-start">
+          <img src={tardeDarkLogo} className="w-[40vw] min-[415px]:hidden" />
+          KVKK ve Gizlilik Sözleşmesi ile Kullanım Koşulları <br /> © TARDE 2023
         </footer>
       </div>
     </div>
