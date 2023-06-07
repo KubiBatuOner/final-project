@@ -20,7 +20,7 @@ import SanliurfaPage from "./components/SehirPages/SanliurfaPage";
 
 function App() {
   return (
-    <div className="bg-[url('Desktop-Landing.png')] min-h-screen py-16">
+    <div className="bg-[url('Desktop-Landing.png')] min-h-screen py-16 font-['Roboto']">
       <div className="App">
         <Switch>
           <Route exact path="/">

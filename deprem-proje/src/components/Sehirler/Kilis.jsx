@@ -124,6 +124,16 @@ export default function Kilis() {
                   </tr>
                 ))}
               </tbody>
+              <thead>
+                <tr className="bg-slate-100">
+                  <th
+                    scope="col"
+                    className="px-3 py-2 text-left text-xs border border-slate-200 font-medium text-gray-500 uppercase"
+                  >
+                    <p className="ml-1 font-bold">TEŞEKKÜRLER</p>
+                  </th>
+                </tr>
+              </thead>
             </table>
           </div>
         </div>

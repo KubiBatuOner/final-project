@@ -21,7 +21,7 @@ export default function NewHeader() {
     setTimeout(() => history.push("/bireysel"));
   }
   return (
-    <>
+    <div>
       <div>
         <img src={logo} className="w-[12vw] ml-4 mt-4 mb-12" alt="Logo" />
         <div className="flex flex-col gap-4 ">
@@ -114,6 +114,6 @@ export default function NewHeader() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
