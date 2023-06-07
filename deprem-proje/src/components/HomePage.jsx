@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="flex-1 flex flex-col justify-between">
           <NewHeader />
         </div>
-        <div className="flex-2 mt-10 mr-10 px-5 mb-3 rounded-lg bg-[url('mapZone.png')] bg-map flex flex-col justify-between">
+        <div className="flex-2 mt-10 mr-10 pt-5 px-5 mb-3 rounded-lg bg-[url('mapZone.png')] bg-map flex flex-col justify-between">
           <Map />
           <div className="flex justify-between">
             {localStorage.getItem("token") !== null ? "" : <Kart />}

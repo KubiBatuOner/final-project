@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import iletisim from "../../images/iletisim.svg";
 
 export default function Sanliurfa() {
   const [merkezData, setMerkezData] = useState([]);
@@ -32,6 +33,25 @@ export default function Sanliurfa() {
         <div>
           <div className="mb-8 ml-4 font-bold text-[#000C5C] text-[1.8rem] leading-[28.13px]">
             {sehir.toLocaleUpperCase("tr-TR")}
+          </div>
+          <div className="mt-5">
+            <div className="bg-[#3C4058] flex flex-col justify-center p-5 gap-4 rounded">
+              <h4 className="text-white flex justify-center items-center">
+                MERKEZ TELEFON NUMARALARI
+              </h4>
+              {merkezData.map((a, index) => (
+                <div
+                  key={index}
+                  className="text-[1.2rem] font-medium flex justify-center items-center gap-2 underline text-white"
+                >
+                  <img src={iletisim} className=" rounded" alt="Logo" />
+                  <a href="tel:{a.merkez_telefon1}">{a.merkez_telefon1}</a>
+                </div>
+              ))}
+              <p className="flex justify-center items-center text-white text-xs">
+                7 GÜN 24 SAAT
+              </p>
+            </div>
           </div>
           <div className="mt-5">
             {merkezData.map((a, index) => (

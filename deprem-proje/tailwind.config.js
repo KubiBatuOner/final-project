@@ -8,6 +8,7 @@ export default {
         intro: "rgba(251, 240, 212, 0.3)",
         map: "rgba(251, 240, 212, 0.2)",
         volunteer: "rgba(248, 203, 78, 1)",
+        hakkinda: "rgba(251, 240, 212, 0.2)",
       },
       flex: {
         2: "2 2 0%",

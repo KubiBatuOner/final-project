@@ -44,7 +44,7 @@ export default function SanliurfaPage() {
         <div className="flex-1 flex flex-col justify-between ">
           <NewHeader />
         </div>
-        <div className="flex-2 flex flex-col mt-10 mr-10 px-5 mb-3 rounded-lg bg-[url('mapZone.png')] bg-intro">
+        <div className="flex-2 flex flex-col mt-10 mr-10 pt-5 px-5 mb-3 rounded-lg bg-[url('mapZone.png')] bg-intro">
           <div className="flex justify-center w-[50vw]">
             <Map />
           </div>

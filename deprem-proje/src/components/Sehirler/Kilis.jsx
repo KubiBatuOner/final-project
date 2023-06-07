@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import iletisim from "../../images/iletisim.svg";
 
 export default function Kilis() {
   const [merkezData, setMerkezData] = useState([]);
@@ -34,10 +35,29 @@ export default function Kilis() {
             {sehir.toLocaleUpperCase("tr-TR")}
           </div>
           <div className="mt-5">
+            <div className="bg-[#3C4058] flex flex-col justify-center p-5 gap-4 rounded">
+              <h4 className="text-white flex justify-center items-center">
+                MERKEZ TELEFON NUMARALARI
+              </h4>
+              {merkezData.map((a, index) => (
+                <div
+                  key={index}
+                  className="text-[1.2rem] font-medium flex justify-center items-center gap-2 underline text-white"
+                >
+                  <img src={iletisim} className=" rounded" alt="Logo" />
+                  {a.merkez_telefon1}
+                </div>
+              ))}
+              <p className="flex justify-center items-center text-white text-xs">
+                7 GÜN 24 SAAT
+              </p>
+            </div>
+          </div>
+          <div className="mt-5">
             {merkezData.map((a, index) => (
               <ul key={index} className="list-image-[url(yuvarlak.svg)]">
                 <li className="ml-10 text-[1.2rem] font-medium text-[#000C5C]">
-                  {a.merkez_isim}
+                  <a href="tel:{a.merkez_telefon1}">{a.merkez_telefon1}</a>
                 </li>
               </ul>
             ))}
