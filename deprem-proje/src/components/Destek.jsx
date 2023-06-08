@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Zoom } from "react-toastify";
-import sol_kız from "../images/sol_kız.svg";
-import sag_erkek from "../images/sag_erkek.svg";
+import tuyluErkek from "../images/TuyluErkek.svg";
+import soruKiz from "../images/SoruKız.svg";
 import DestekSol from "../images/logoAll.svg";
 import { useState } from "react";
 
@@ -247,20 +247,18 @@ export default function Destek() {
                 BAŞVURUMU GÖNDER
               </button>
             </div>
-            <ul className="text-start list-disc">
-              <li>Zorunlu bilgi</li>
-            </ul>
+            <p className=" flex justify-start items-start">* Zorunlu bilgi</p>
           </form>
         </div>
         <div className="flex flex-col gap-8 flex-1 ">
           <div className="flex justify-center mr-8">
-            <img src={DestekSol} className="w-[10vw] " />
+            <img src={DestekSol} className="w-[12vw] " />
           </div>
           <div className="flex justify-center mr-8">
-            <img src={sol_kız} className="w-[9vw] " />
+            <img src={tuyluErkek} className="w-[10vw] " />
           </div>
           <div className="flex justify-center mr-8">
-            <img src={sag_erkek} className="w-[9vw] " />
+            <img src={soruKiz} className="w-[10vw] " />
           </div>
         </div>
       </div>

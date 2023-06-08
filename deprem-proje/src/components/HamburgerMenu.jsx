@@ -14,6 +14,12 @@ export default function HamburgerMenu() {
   function handleSendAbout() {
     setTimeout(() => history.push("/hakkimizda"));
   }
+  function handleSendContact() {
+    setTimeout(() => history.push("/bireysel"));
+  }
+  function handleVolunteerContact() {
+    setTimeout(() => history.push("/volunteer"));
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-6 absolute top-0 left-0 w-full h-screen bg-white min-[415px]:hidden">
@@ -41,7 +47,10 @@ export default function HamburgerMenu() {
           {localStorage.getItem("token") !== null ? (
             <button className="hidden">Gönüllü Ol</button>
           ) : (
-            <button className="flex flex-row gap-2 rounded items-center text-[#000C5C] text-2xl">
+            <button
+              className="flex flex-row gap-2 rounded items-center text-[#000C5C] text-2xl"
+              onClick={handleVolunteerContact}
+            >
               <img src={gonullu} className="rounded" alt="Logo" />
               Gönüllü Ol
             </button>
@@ -51,7 +60,10 @@ export default function HamburgerMenu() {
           {localStorage.getItem("token") !== null ? (
             <button className="hidden">İletişim</button>
           ) : (
-            <button className="flex flex-row gap-2 rounded items-center text-[#000C5C] text-2xl">
+            <button
+              className="flex flex-row gap-2 rounded items-center text-[#000C5C] text-2xl"
+              onClick={handleSendContact}
+            >
               <img src={iletisim} className="rounded" alt="Logo" />
               İletişim
             </button>

@@ -2,8 +2,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Zoom } from "react-toastify";
-import sol_kız from "../images/sol_kız.svg";
-import sag_erkek from "../images/sag_erkek.svg";
+import volunteer from "../images/volunteer.svg";
 import DestekSol from "../images/logoAll.svg";
 import { useState } from "react";
 
@@ -46,18 +45,18 @@ export default function Gonullu() {
 
   return (
     <div className="flex">
-      <div className="flex text-center h-full w-full rounded-[40px] gap-8 mt-10">
+      <div className="flex text-center rounded-[40px] gap-8 mt-10">
         <div className="flex-2 flex flex-col gap-5 md:flex-col rounded-lg">
-          <h2 className="flex justify-start mb-6 font-roboto font-extrabold text-[#030E5E] text-[64px] text-start leading-[75px] mr-6">
+          <h2 className="flex justify-start mb-6 font-roboto font-extrabold text-[#030E5E] text-[64px] text-start leading-[75px] mr-10">
             Sahada Destek Vermek İçin Gönüllü Ol
           </h2>
           <form
-            className="flex flex-col flex-2 w-full h-full object-cover gap-4 mr-8 mb-10 pl-10 font-inter text-[#000C5C] "
+            className="flex flex-col flex-2 object-cover gap-6 mr-8 mb-10 pl-10 font-inter text-[#000C5C] "
             onSubmit={handleSubmit(onSubmit)}
             href="Mail adresi gelebilir"
           >
             <label className="items-start flex flex-col gap-1 font-medium">
-              Adınız*
+              Adınız *
               <input
                 type="text"
                 name="name"
@@ -131,12 +130,12 @@ export default function Gonullu() {
                 {errors.telefon.message}
               </p>
             )}
-            <label className="text-center gap-1 flex flex-col font font-medium">
+            <label className="items-start gap-1 flex flex-col font font-medium">
               Sahada Çalışmak İstediğiniz İl *
               <select
                 name="sehir"
                 id="sehir"
-                className="border text-center mt-5px  border-[#F8CB4E] rounded-md py-1vh px-0 text-gray-500 text-lg w-full h-full ml-25%"
+                className="mt-[5px] rounded-md text-gray-500 text-lg w-72 h-10 ml-25%"
                 {...register("sehir", {
                   required: "Lütfen bulunduğunuz şehri belirtiniz",
                 })}
@@ -161,53 +160,31 @@ export default function Gonullu() {
                 {errors.sehir.message}
               </p>
             )}
-            <label className=" items-start text-center gap-1 flex flex-col font-medium">
-              Destek Alacak Kişi *
-              <div className="flex items-center mt-2">
-                <input
-                  type="checkbox"
-                  name="destekkisi"
-                  id="kendim"
-                  value="kendim"
-                  className="border border-[#F8CB4E] rounded-md pl-2 text-gray-500 text-lg w-4 h-4 mr-2"
-                />
-                <label htmlFor="kendim" className="text-gray-700+">
-                  Kendim
-                </label>
-                <input
-                  type="checkbox"
-                  name="destekkisi"
-                  id="yakinim"
-                  value="yakinim"
-                  className="border border-[#F8CB4E] rounded-md pl-2 text-gray-500 text-lg w-4 h-4 ml-2"
-                />
-                <label htmlFor="yakinim" className="text-[#030E5E] ml-2">
-                  Yakınım
-                </label>
-              </div>
+            <label className="items-start gap-1 flex flex-col font-medium">
+              Sahada çalışmak istediğiniz tarih başlangıcı *
+              <input
+                type="date"
+                name="bdate"
+                id="bdate"
+                className="mt-[5px] rounded-md pl-2 text-gray-500 text-lg w-72 h-10 ml-25%"
+              />
             </label>
-            <label className="items-start text-center gap-2 flex flex-col font-medium">
-              Yakınlık Dereceniz *
-              <textarea
-                name="message1"
-                id="message1"
-                className="mt-[5px] border rounded-xl pl-2 text-gray-500 text-lg w-72 h-10 ml-25%"
-                {...register("message1", {
-                  required: "Lütfen yakınlık derecesi alanını boş bırakmayınız",
-                  maxLength: {
-                    value: 200,
-                    message: "En fazla 200 karaktere kadar yazılabilir",
-                  },
-                })}
-              ></textarea>
+            <label className="items-start gap-1 flex flex-col font-medium">
+              Sahada çalışmak istediğiniz tarih bitişi *
+              <input
+                type="date"
+                name="fdate"
+                id="fdate"
+                className="mt-[5px] rounded-md pl-2 text-gray-500 text-lg w-72 h-10 ml-25%"
+              />
             </label>
             {errors.message1 && (
               <p className="formErrorMessage text-red-600 text-start">
                 {errors.message1.message}
               </p>
             )}
-            <label className="items-start text-center gap-2 flex flex-col font-medium">
-              Başvuru nedeninizi kısaca anlatır mısınız? *
+            <label className="items-start text-start gap-2 flex flex-col font-medium mr-32">
+              Sahada gönüllü çalışma motivasyonunuzu kısaca anlatır mısınız? *
               <textarea
                 name="message"
                 id="message"
@@ -257,9 +234,7 @@ export default function Gonullu() {
                 BAŞVURUMU GÖNDER
               </button>
             </div>
-            <ul className="text-start list-disc">
-              <li>Zorunlu bilgi</li>
-            </ul>
+            <p className=" flex justify-start items-start">* Zorunlu bilgi</p>
           </form>
         </div>
         <div className="flex flex-col gap-8 flex-1 ">
@@ -267,10 +242,7 @@ export default function Gonullu() {
             <img src={DestekSol} className="w-[10vw] " />
           </div>
           <div className="flex justify-center mr-8">
-            <img src={sol_kız} className="w-[9vw] " />
-          </div>
-          <div className="flex justify-center mr-8">
-            <img src={sag_erkek} className="w-[9vw] " />
+            <img src={volunteer} className="w-[15vw] " />
           </div>
         </div>
       </div>
