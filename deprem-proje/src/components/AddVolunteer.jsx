@@ -209,21 +209,23 @@ export default function AddVolunteer() {
                     {errors.message.message}
                   </p>
                 )}
-                <div className="ml-2">
+                <div className="ml-2 flex gap-1">
                   <input
                     type="checkbox"
                     id="kvkkCheckbox"
                     checked={kvkkChecked}
                     onChange={handleKvkkChange}
                   />
-                  <label htmlFor="kvkkCheckbox">
+                  <label className="flex" htmlFor="kvkkCheckbox">
                     <a
                       href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6698&MevzuatTur=1&MevzuatTertip=5"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="underline text-blue-700"
                     >
-                      KVKK metnini okudum onaylıyorum. *
+                      KVKK metnini&nbsp;
                     </a>
+                    <p>okudum onaylıyorum. *</p>
                   </label>
                 </div>
                 <button
