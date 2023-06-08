@@ -25,7 +25,7 @@ export default function HamburgerMenu() {
             onClick={handleSend}
           >
             <img src={harita} className="rounded" alt="Logo" />
-            Harita
+            Ana Sayfa
           </button>
         </div>
         <div className="flex justify-start items-center rounded-md w-[70%] hover:bg-ozi">

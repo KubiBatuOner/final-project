@@ -23,6 +23,9 @@ export default function NewHeader() {
   function handleSendContact() {
     setTimeout(() => history.push("/bireysel"));
   }
+  function handleVolunteerContact() {
+    setTimeout(() => history.push("/volunteer"));
+  }
   return (
     <>
       <div>
@@ -63,7 +66,10 @@ export default function NewHeader() {
             {localStorage.getItem("token") !== null ? (
               <button className="hidden">Gönüllü Ol</button>
             ) : (
-              <button className="flex flex-row gap-2 ml-8 rounded items-center text-[#000C5C] text-lg">
+              <button
+                className="flex flex-row gap-2 ml-8 rounded items-center text-[#000C5C] text-lg"
+                onClick={handleVolunteerContact}
+              >
                 <img src={gonullu} className="rounded" alt="Logo" />
                 Gönüllü Ol
               </button>

@@ -2,7 +2,6 @@
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
-import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./components/HomePage";
@@ -18,6 +17,8 @@ import MalatyaPage from "./components/SehirPages/MalatyaPage";
 import OsmaniyePage from "./components/SehirPages/OsmaniyePage";
 import SanliurfaPage from "./components/SehirPages/SanliurfaPage";
 import tardeDarkLogo from "./images/tardeDarkLogo.svg";
+import AddVolunteer from "./components/AddVolunteer";
+import DestekPage from "./components/DestekPage";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/hakkimizda">
             <IntroPage />
+          </Route>
+          <Route exact path="/volunteer">
+            <AddVolunteer />
           </Route>
           <Route exact path="/adana">
             <AdanaPage />
@@ -64,7 +68,7 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/bireysel">
-            <Form />
+            <DestekPage />
           </Route>
           <PrivateRoute>
             <Route exact path="/panel">
