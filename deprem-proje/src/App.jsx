@@ -17,8 +17,8 @@ import MalatyaPage from "./components/SehirPages/MalatyaPage";
 import OsmaniyePage from "./components/SehirPages/OsmaniyePage";
 import SanliurfaPage from "./components/SehirPages/SanliurfaPage";
 import tardeDarkLogo from "./images/tardeDarkLogo.svg";
-import AddVolunteer from "./components/AddVolunteer";
 import DestekPage from "./components/DestekPage";
+import GonulluPage from "./components/GonulluPage";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
             <IntroPage />
           </Route>
           <Route exact path="/volunteer">
-            <AddVolunteer />
+            <GonulluPage />
           </Route>
           <Route exact path="/adana">
             <AdanaPage />

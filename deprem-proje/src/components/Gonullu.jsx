@@ -7,7 +7,7 @@ import sag_erkek from "../images/sag_erkek.svg";
 import DestekSol from "../images/logoAll.svg";
 import { useState } from "react";
 
-export default function Destek() {
+export default function Gonullu() {
   const {
     register,
     handleSubmit,
@@ -43,12 +43,13 @@ export default function Destek() {
     );
     setTimeout(() => history.push("/"), 5000);
   }
+
   return (
     <div className="flex">
       <div className="flex text-center h-full w-full rounded-[40px] gap-8 mt-10">
         <div className="flex-2 flex flex-col gap-5 md:flex-col rounded-lg">
           <h2 className="flex justify-start mb-6 font-roboto font-extrabold text-[#030E5E] text-[64px] text-start leading-[75px] mr-6">
-            Psikolojik Destek Almak İçin Başvurun
+            Sahada Destek Vermek İçin Gönüllü Ol
           </h2>
           <form
             className="flex flex-col flex-2 w-full h-full object-cover gap-4 mr-8 mb-10 pl-10 font-inter text-[#000C5C] "
@@ -56,7 +57,7 @@ export default function Destek() {
             href="Mail adresi gelebilir"
           >
             <label className="items-start flex flex-col gap-1 font-medium">
-              İsim *
+              Adınız*
               <input
                 type="text"
                 name="name"
@@ -81,7 +82,7 @@ export default function Destek() {
               </p>
             )}
             <label className="items-start text-center flex flex-col gap-1 font-medium">
-              Soyisim *
+              Soyadınız *
               <input
                 type="text"
                 name="surname"
@@ -130,21 +131,30 @@ export default function Destek() {
                 {errors.telefon.message}
               </p>
             )}
-            <label className="items-start text-center gap-1 flex flex-col font-medium">
-              Yaşadığınız İl *
-              <input
-                type="text"
+            <label className="text-center gap-1 flex flex-col font font-medium">
+              Sahada Çalışmak İstediğiniz İl *
+              <select
                 name="sehir"
                 id="sehir"
-                className="mt-[5px] border rounded-xl pl-2 text-gray-500 text-lg w-72 h-10 ml-25%"
+                className="border text-center mt-5px  border-[#F8CB4E] rounded-md py-1vh px-0 text-gray-500 text-lg w-full h-full ml-25%"
                 {...register("sehir", {
                   required: "Lütfen bulunduğunuz şehri belirtiniz",
-                  minLength: {
-                    value: 3,
-                    message: "Lütfen geçerli şehir giriniz",
-                  },
                 })}
-              />
+              >
+                <option value="" className="hidden-option hidden border-4">
+                  Bir İl Seçiniz
+                </option>
+                <option value="Hatay">Hatay</option>
+                <option value="Gaziantep">Gaziantep</option>
+                <option value="Şanlıurfa">Şanlıurfa</option>
+                <option value="Diyarbakır">Diyarbakır</option>
+                <option value="Kilis">Kilis</option>
+                <option value="Osmaniye">Osmaniye</option>
+                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                <option value="Malatya">Malatya</option>
+                <option value="Adana">Adana</option>
+                <option value="Adıyaman">Adıyaman</option>
+              </select>
             </label>
             {errors.sehir && (
               <p className="formErrorMessage text-red-600 text-start">
