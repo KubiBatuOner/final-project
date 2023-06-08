@@ -11,7 +11,7 @@ export default function Intro() {
           <h2 className="flex justify-start mb-6 font-roboto font-bold text-[#030E5E] text-[64px] leading-[75px] mr-6">
             Hakkımızda
           </h2>
-          <p className="text-[32px] text-[#4A4A4A] leading-[45px] text-start ml-10 w-[30vw]">
+          <p className="text-[32px] text-[#4A4A4A] font-thin leading-[45px] text-start ml-10 w-[30vw]">
             Affan kötülükten uzak durandır. Besleyicidir, Bağımsızdır,
             Çeşitlidir, Barışseverdir, Kapsayıcıdır
           </p>

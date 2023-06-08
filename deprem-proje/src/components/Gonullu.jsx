@@ -5,6 +5,7 @@ import { Zoom } from "react-toastify";
 import volunteer from "../images/volunteer.svg";
 import DestekSol from "../images/logoAll.svg";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function Gonullu() {
   const {
@@ -43,6 +44,26 @@ export default function Gonullu() {
     setTimeout(() => history.push("/"), 5000);
   }
 
+  const sendEmail = (formData) => {
+    onSubmit(formData);
+    emailjs
+      .send(
+        "service_z8a15sd",
+        "template_5z3refi",
+        formData,
+        "tfOGV6prPjVcdhFOe"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    reset();
+  };
+
   return (
     <div className="flex">
       <div className="flex text-center rounded-[40px] gap-8 mt-10">
@@ -52,8 +73,8 @@ export default function Gonullu() {
           </h2>
           <form
             className="flex flex-col flex-2 object-cover gap-6 mr-8 mb-10 pl-10 font-inter text-[#000C5C] "
-            onSubmit={handleSubmit(onSubmit)}
-            href="Mail adresi gelebilir"
+            onSubmit={handleSubmit(sendEmail)}
+            href="mailto:kbatuhanoner@yahoo.com"
           >
             <label className="items-start flex flex-col gap-1 font-medium">
               Adınız *
